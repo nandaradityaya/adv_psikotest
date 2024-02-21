@@ -1,0 +1,553 @@
+﻿Imports Adv
+
+Public Class MenuAssignment
+
+    Public Shared Function CheckRoleAssignment(ByVal Role As String, ByVal Path As String) As Boolean
+        'Dokumen Angkutan
+        Dim AllowedMenuAdminDA() As String = {"/DA/Home.aspx", _
+                                             "/DA/Admin_viewDA.aspx", _
+                                             "/DA/Admin_viewPost.aspx"}
+
+        Dim AllowedMenuUserDA() As String = {"/DA/Home.aspx", _
+                                        "/DA/User_view.aspx", _
+                                        "/DA/User_export.aspx"}
+
+        Dim AllowedMenuApprovalDA() As String = {"/DA/Home.aspx", _
+                                      "/DA/Approval_viewApproval.aspx"}
+
+        Dim AllowedMenuAuditDA() As String = {"/DA/Home.aspx", _
+                                     "/DA/Audit_view.aspx"}
+
+        Dim AllowedMenuSummaryDA() As String = {"/DA/Home.aspx", _
+                                    "/DA/Summary_summaryDA.aspx"}
+
+        Dim AllowedMenuMarketingDA() As String = {"/DA/Home.aspx", _
+                                      "/DA/Marketing_MasterCabang.aspx", _
+                                      "/DA/Marketing_MsClient.aspx", _
+                                      "/DA/Marketing_MsImport.aspx"}
+
+
+        'Memorandum of Approval (MOA)
+        Dim AllowedMenuAdminMOA() As String = {"/MOA/Home.aspx", _
+                                             "/MOA/Admin_eksportMOA.aspx", _
+                                             "/MOA/Admin_viewMOA.aspx"}
+        Dim AllowedMenuPurchasingMOA() As String = {"/MOA/Home.aspx", _
+                                             "/MOA/Purchasing_purchs.aspx", _
+                                             "/MOA/Purchasing_EksportExcel.aspx"}
+        Dim AllowedMenuUserMOA() As String = {"/MOA/Home.aspx", _
+                                             "/MOA/User_userMOA.aspx"}
+
+
+        'BON System
+        Dim AllowedMenuAdminBON() As String = {"/BON/Home.aspx", _
+                                            "/BON/Admin_MsACC.aspx", _
+                                             "/BON/Admin_MsBus.aspx", _
+                                             "/BON/Admin_MsCost.aspx", _
+                                             "/BON/Admin_MsPlat.aspx", _
+                                            "/BON/Admin_view.aspx"}
+        Dim AllowedMenuAuditBON() As String = {"/BON/Home.aspx", _
+                                             "/BON/Audit_EksportEx.aspx", _
+                                             "/BON/Audit_view.aspx"}
+        Dim AllowedMenuUserBON() As String = {"/BON/Home.aspx", _
+                                             "/BON/User_view.aspx"}
+
+
+        'HRD Overtime
+        Dim AllowedMenuCabangHRD() As String = {"/HRD/Home.aspx", _
+                                      "/HRD/User_ViewOvertime.aspx"}
+
+        Dim AllowedMenuApprovalHRD() As String = {"/HRD/Home.aspx", _
+                                      "/HRD/Approval_ViewOvertime.aspx"}
+
+        Dim AllowedMenuVerifikasiHRD() As String = {"/HRD/Home.aspx", _
+                                     "/HRD/Verifikator_ViewOvertime.aspx"}
+
+        Dim AllowedMenuAdminHRD() As String = {"/HRD/Home.aspx", _
+                                               "/HRD/HRD_Closing.aspx", _
+                                                "/HRD/HRD_import.aspx", _
+                                             "/HRD/HRD_export.aspx", _
+                                    "/HRD/HRD_viewCabang.aspx"}
+        Dim AllowedMenuAuditHRD() As String = {"/HRD/Home.aspx", _
+                                   "/HRD/HRD_viewCabang.aspx"}
+
+
+        'Risk Data Event
+        Dim AllowedMenuUserRDE() As String = {"/RDE/Home.aspx", _
+                                      "/RDE/User_user.aspx"}
+
+        Dim AllowedMenuOPsRDE() As String = {"/RDE/Home.aspx", _
+                                      "/RDE/OPS_viewRDE.aspx"}
+
+        Dim AllowedMenuAdminNasRDE() As String = {"/RDE/Home.aspx", _
+                                     "/RDE/Admin_viewRisk.aspx"}
+        Dim AllowedMenuAproveRDE() As String = {"/RDE/Home.aspx", _
+                                   "/RDE/Approval_viewApproval.aspx"}
+
+
+        'User Request Form
+        Dim AllowedMenuUserURF() As String = {"/URF/Home.aspx", _
+                                      "/URF/User_view.aspx"}
+
+        Dim AllowedMenuItdhURF() As String = {"/URF/Home.aspx", _
+                                      "/URF/ITDH_view.aspx"}
+
+        'Runsheet
+        Dim AllowedMenuUserRunsheet() As String = {"/RUN/Home.aspx", _
+                                      "/RUN/Runsheet.aspx", _
+                                      "/RUN/User_Report.aspx"}
+
+        Dim AllowedMenuPusatRun() As String = {"/RUN/Home.aspx", _
+                                                "/RUN/Admin_ViewCancel.aspx", _
+                                      "/RUN/Admin_ViewRun.aspx"}
+
+        Dim AllowedMenuSPVRun() As String = {"/RUN/Home.aspx", _
+                                     "/RUN/SPV_RunSheetApprove.aspx", _
+                                    "/RUN/SPV_Runsheet.aspx"}
+
+        Dim AllowedMenuSPVMoncen() As String = {"/RUN/Home.aspx", _
+                                                    "/RUN/SPVMONCEN_Cancel.aspx", _
+                                   "/RUN/SPV_Moncen.aspx"}
+
+
+        'SIMULATOR
+        Dim AllowedMenuOPSimulator() As String = {"/SIMULATOR/Home.aspx", _
+                                        "/SIMULATOR/ChangeSector.aspx", _
+                                        "/SIMULATOR/RepSummaryProblem.aspx"}
+
+        'CPC
+        Dim AllowedMenuOprCPC() As String = {"/CPC/Home.aspx", _
+                                             "/CPC/Transaksi.aspx"}
+        Dim AllowedMenuSpvCPC() As String = {"/CPC/Home.aspx", _
+                                             "/CPC/Transaksi.aspx", _
+                                             "/CPC/Report.aspx"}
+
+        'BBM
+        Dim AllowedMenuInputerBBM() As String = {"/BBM/Home.aspx", _
+                                         "/BBM/Inputer_ViewDecline.aspx", _
+                                             "/BBM/Inputer_BBM.aspx"}
+        Dim AllowedMenuSpvBBM() As String = {"/BBM/Home.aspx", _
+                                              "/BBM/SPV_ViewDecline.aspx", _
+                                             "/BBM/SPV_BBM.aspx"}
+        Dim AllowedMenuAdminBBM() As String = {"/BBM/Home.aspx", _
+                                            "/BBM/Admin_BBM.aspx", _
+                                            "/BBM/Admin_PostingBBM.aspx", _
+                                                "/BBM/Admin_MsJnsBB.aspx", _
+                                            "/BBM/Admin_OpenApprove.aspx"}
+
+        'Recording Questor and Cencon
+        Dim AllowedMenuOperatorRQC() As String = {"/RQC/Home.aspx", _
+                                                   "/RQC/OP_CenconPage.aspx", _
+                                                   "/RQC/OP_ViewCLoseCencon.aspx", _
+                                                "/RQC/OP_QuestorPage.aspx", _
+                                             "/RQC/OP_ViewCLoseQuestor.aspx"}
+        Dim AllowedMenuAdminRQC() As String = {"/RQC/Home.aspx", _
+                                              "/RQC/Admin_CenconPage.aspx", _
+                                             "/RQC/Admin_QuestorPage.aspx", _
+                                               "/RQC/Admin_MsLocation.aspx", _
+                                               "/RQC/Admin_MsKota.aspx", _
+                                            "/RQC/Admin_MsATM.aspx", _
+                                            "/RQC/Admin_MsProblem.aspx", _
+                                                 "/RQC/Admin_MsCustody.aspx", _
+                                             "/RQC/Admin_MsRF.aspx"}
+        Dim AllowedMenuAuditRQC() As String = {"/RQC/Home.aspx", _
+                                             "/RQC/Audit_ViewQuestor.aspx", _
+                                          "/RQC/Audit_ViewCencon.aspx"}
+
+        ' Role Dokumen Angkutan
+        Select Case Role
+            Case "DA_ADM"
+                If Path.ContainsAny(AllowedMenuAdminDA) Then
+                    Return True
+                End If
+
+            Case "DA_CBG"
+                If Path.ContainsAny(AllowedMenuUserDA) Then
+                    Return True
+                End If
+
+            Case "DA_APR"
+                If Path.ContainsAny(AllowedMenuApprovalDA) Then
+                    Return True
+                End If
+
+            Case "DA_AUDIT"
+                If Path.ContainsAny(AllowedMenuAuditDA) Then
+                    Return True
+                End If
+
+            Case "DA_MRKT"
+                If Path.ContainsAny(AllowedMenuMarketingDA) Then
+                    Return True
+                End If
+
+            Case "DA_SUM"
+                If Path.ContainsAny(AllowedMenuSummaryDA) Then
+                    Return True
+                End If
+        End Select
+
+
+        ' Role Memorandum of Approval (MOA)
+        Select Case Role
+            Case "MOA_ADFIN"
+                If Path.ContainsAny(AllowedMenuAdminMOA) Then
+                    Return True
+                End If
+
+            Case "MOA_PURCH"
+                If Path.ContainsAny(AllowedMenuPurchasingMOA) Then
+                    Return True
+                End If
+
+            Case "MOA_Cabang", "MOA_ADMMTG", "MOA_BPM", "MOA_CPCJKT", "MOA_FLMJKT", "MOA_FLT", "MOA_FLTGRD", _
+                "MOA_SRG", "MOA_GA", "MOA_IT", "MOA_KUR", "MOA_MKT", "MOA_HRD", _
+                "MOA_SSFM", "MOA_OPRREG", "MOA_RWAJKT", "MOA_SAA"
+                If Path.ContainsAny(AllowedMenuUserMOA) Then
+                    Return True
+                End If
+        End Select
+
+
+        ' Role BON System
+        Select Case Role
+            Case "BON_AUDIT"
+                If Path.ContainsAny(AllowedMenuAuditBON) Then
+                    Return True
+                End If
+
+            Case "BON_CAB"
+                If Path.ContainsAny(AllowedMenuUserBON) Then
+                    Return True
+                End If
+
+            Case "BON_PUST"
+                If Path.ContainsAny(AllowedMenuAdminBON) Then
+                    Return True
+                End If
+        End Select
+
+
+        'Role HRD Overtime
+        Select Case Role
+            Case "HRD_HRD"
+                If Path.ContainsAny(AllowedMenuAdminHRD) Then
+                    Return True
+                End If
+
+            Case "HRD_AUDIT"
+                If Path.ContainsAny(AllowedMenuAuditHRD) Then
+                    Return True
+                End If
+
+            Case "HRD_CABANG", "HRD_CABANGP"
+                If Path.ContainsAny(AllowedMenuCabangHRD) Then
+                    Return True
+                End If
+
+            Case "HRD_APR", "HRD_APRP"
+                If Path.ContainsAny(AllowedMenuApprovalHRD) Then
+                    Return True
+                End If
+
+            Case "HRD_VERO", "HRD_VEROP"
+                If Path.ContainsAny(AllowedMenuVerifikasiHRD) Then
+                    Return True
+                End If
+        End Select
+
+
+        'Role Risk Data Event
+        Select Case Role
+            Case "RDE_OR", "RDE_AR"
+                If Path.ContainsAny(AllowedMenuOPsRDE) Then
+                    Return True
+                End If
+
+            Case "RDE_AN", "RDE_BPM"
+                If Path.ContainsAny(AllowedMenuAdminNasRDE) Then
+                    Return True
+                End If
+
+            Case "RDE_INP"
+                If Path.ContainsAny(AllowedMenuUserRDE) Then
+                    Return True
+                End If
+
+            Case "RDE_APR"
+                If Path.ContainsAny(AllowedMenuAproveRDE) Then
+                    Return True
+                End If
+        End Select
+
+
+        'Role User Request Form (URF)
+        Select Case Role
+            Case "URF_USER"
+                If Path.ContainsAny(AllowedMenuUserURF) Then
+                    Return True
+                End If
+
+            Case "URF_ITDH", "URF_MAN"
+                If Path.ContainsAny(AllowedMenuItdhURF) Then
+                    Return True
+                End If
+        End Select
+
+        'Role RUnsheet
+        Select Case Role
+            Case "RUN_CBG"
+                If Path.ContainsAny(AllowedMenuUserRunsheet) Then
+                    Return True
+                End If
+
+            Case "RUN_ADM"
+                If Path.ContainsAny(AllowedMenuPusatRun) Then
+                    Return True
+                End If
+
+            Case "RUN_SPV"
+                If Path.ContainsAny(AllowedMenuSPVRun) Then
+                    Return True
+                End If
+
+            Case "RUN_SPVMONCEN"
+                If Path.ContainsAny(AllowedMenuSPVMoncen) Then
+                    Return True
+                End If
+        End Select
+
+        'Role SIMULATOR
+        Select Case Role
+            Case "ASS_OP"
+                If Path.ContainsAny(AllowedMenuOPSimulator) Then
+                    Return True
+                End If
+
+        End Select
+
+        'Role CPC
+        Select Case Role
+            Case "CPC_OPR"
+                If Path.ContainsAny(AllowedMenuOprCPC) Then
+                    Return True
+                End If
+
+            Case "CPC_SPV"
+                If Path.ContainsAny(AllowedMenuSpvCPC) Then
+                    Return True
+                End If
+        End Select
+
+        'Role BBM
+        Select Case Role
+            Case "BBM_INP"
+                If Path.ContainsAny(AllowedMenuInputerBBM) Then
+                    Return True
+                End If
+
+            Case "BBM_APR"
+                If Path.ContainsAny(AllowedMenuSpvBBM) Then
+                    Return True
+                End If
+
+            Case "BBM_ADM"
+                If Path.ContainsAny(AllowedMenuAdminBBM) Then
+                    Return True
+                End If
+        End Select
+
+        'Role RQC
+        Select Case Role
+            Case "RQC_OP"
+                If Path.ContainsAny(AllowedMenuOperatorRQC) Then
+                    Return True
+                End If
+
+            Case "RQC_ADM"
+                If Path.ContainsAny(AllowedMenuAdminRQC) Then
+                    Return True
+                End If
+            Case "RQC_AUDIT"
+                If Path.ContainsAny(AllowedMenuAuditRQC) Then
+                    Return True
+                End If
+        End Select
+
+        Return False
+    End Function
+
+    Public Shared Function CreateListOfAllowedMenus(ByVal Role As String) As String
+        Dim sb As New Text.StringBuilder
+        sb.Append("<ul class=""nav"">")
+        sb.Append("<li><a href=""../home.aspx"">Home</a></li>")
+
+
+        ' Halaman Dokumen Angkutan
+        Select Case Role
+            Case "DA_ADM"
+                sb.Append("<li><a href=""Admin_viewDA.aspx"">View DA Cabang</a></li>")
+                sb.Append("<li><a href=""Admin_viewPost.aspx"">Posting DA Cabang</a></li>")
+            Case "DA_CBG"
+                sb.Append("<li><a href=""User_view.aspx"">Entry Dokumen Angkutan</a></li>")
+                sb.Append("<li><a href=""User_export.aspx"">Export DA</a></li>")
+            Case "DA_APR"
+                sb.Append("<li><a href=""Approval_viewApproval.aspx"">View DA Cabang</a></li>")
+            Case "DA_AUDIT"
+                sb.Append("<li><a href=""Audit_view.aspx"">View DA Cabang</a></li>")
+            Case "DA_SUM"
+                sb.Append("<li><a href=""Summary_summaryDA.aspx"">View DA Cabang</a></li>")
+            Case "DA_MRKT"
+                sb.Append("<li><a href=""Marketing_MasterCabang.aspx"">Master Cabang</a></li>")
+                sb.Append("<li><a href=""Marketing_MsClient.aspx"">Master Klien</a></li>")
+                sb.Append("<li><a href=""Marketing_MsImport.aspx"">Import Master Klien</a></li>")
+        End Select
+
+
+        ' Halaman Memorandum of Approval (MOA)
+        Select Case Role
+            Case "MOA_ADFIN"
+                sb.Append("<li><a href=""Admin_viewMOA.aspx"">View MOA</a></li>")
+                sb.Append("<li><a href=""Admin_eksportMOA.aspx"">Eksport MOA</a></li>")
+            Case "MOA_PURCH"
+                sb.Append("<li><a href=""Purchasing_purchs.aspx"">View MOA</a></li>")
+                sb.Append("<li><a href=""Purchasing_EksportExcel.aspx"">Eksport MOA</a></li>")
+            Case "MOA_Cabang", "MOA_ADMMTG", "MOA_BPM", "MOA_CPCJKT", "MOA_FLMJKT", "MOA_FLT", "MOA_FLTGRD", _
+                "MOA_SRG", "MOA_GA", "MOA_IT", "MOA_KUR", "MOA_MKT", "MOA_HRD", _
+                "MOA_SSFM", "MOA_OPRREG", "MOA_RWAJKT", "MOA_SAA"
+                sb.Append("<li><a href=""User_userMOA.aspx"">View MOA</a></li>")
+        End Select
+
+
+        ' Halaman BON Sys
+        Select Case Role
+            Case "BON_AUDIT"
+                sb.Append("<li><a href=""Audit_view.aspx"">View BON</a></li>")
+                sb.Append("<li><a href=""Audit_EksportEx.aspx"">Eksport Excel</a></li>")
+            Case "BON_PUST"
+                sb.Append("<li><a href=""Admin_view.aspx"">View BON Cabang</a></li>")
+                sb.Append("<li><a href=""Admin_MsACC.aspx"">Master Acc Code</a></li>")
+                sb.Append("<li><a href=""Admin_MsCost.aspx"">Master Cost Center</a></li>")
+                sb.Append("<li><a href=""Admin_MsBus.aspx"">Master Bus Unit</a></li>")
+                sb.Append("<li><a href=""Admin_MsPlat.aspx"">Master Plat No</a></li>")
+            Case "BON_CAB"
+                sb.Append("<li><a href=""User_view.aspx"">View BON</a></li>")
+        End Select
+
+
+        'Halaman HRD Overtime
+        Select Case Role
+            Case "HRD_CABANG", "HRD_CABANGP"
+                sb.Append("<li><a href=""User_ViewOvertime.aspx"">View Overtime</a></li>")
+            Case "HRD_VERO", "HRD_VEROP"
+                sb.Append("<li><a href=""Verifikator_ViewOvertime.aspx"">View Overtime</a></li>")
+            Case "HRD_APR", "HRD_APRP"
+                sb.Append("<li><a href=""Approval_ViewOvertime.aspx"">View Overtime</a></li>")
+            Case "HRD_HRD"
+                sb.Append("<li><a href=""HRD_viewCabang.aspx"">View Overtime Cabang</a></li>")
+                sb.Append("<li><a href=""HRD_Closing.aspx"">Closing Overtime Cabang</a></li>")
+                sb.Append("<li><a href=""HRD_import.aspx"">Import</a></li>")
+                sb.Append("<li><a href=""HRD_export.aspx"">Eksport</a></li>")
+            Case "HRD_AUDIT"
+                sb.Append("<li><a href=""HRD_viewCabang.aspx"">View Overtime Cabang</a></li>")
+        End Select
+
+
+        'Halaman Risk Data Event
+        Select Case Role
+            Case "RDE_OR", "RDE_AR"
+                sb.Append("<li><a href=""OPS_viewRDE.aspx"">View Risk Event</a></li>")
+            Case "RDE_AN", "RDE_BPM"
+                sb.Append("<li><a href=""Admin_viewRisk.aspx"">View Risk Event Cabang</a></li>")
+            Case "RDE_INP"
+                sb.Append("<li><a href=""User_user.aspx"">Entry Risk Event</a></li>")
+            Case "RDE_APR"
+                sb.Append("<li><a href=""Approval_viewApproval.aspx"">View Risk Event</a></li>")
+        End Select
+
+
+        'Halaman User Request Form
+        Select Case Role
+            Case "URF_USER"
+                sb.Append("<li><a href=""User_view.aspx"">Entry URF</a></li>")
+            Case "URF_ITDH", "URF_MAN"
+                sb.Append("<li><a href=""ITDH_view.aspx"">View URF</a></li>")
+        End Select
+
+
+        'Halaman Runsheet
+        Select Case Role
+            Case "RUN_CBG"
+                sb.Append("<li><a href=""Runsheet.aspx"">View Runsheet</a></li>")
+                sb.Append("<li><a href=""User_Report.aspx"">Report</a></li>")
+            Case "RUN_ADM"
+                sb.Append("<li><a href=""Admin_ViewRun.aspx"">View Runsheet Cabang</a></li>")
+                sb.Append("<li><a href=""Admin_ViewCancel.aspx"">View Runsheet Cancel</a></li>")
+            Case "RUN_SPV"
+                sb.Append("<li><a href=""SPV_RunSheetApprove.aspx"">Approve Runsheet</a></li>")
+                sb.Append("<li><a href=""SPV_Runsheet.aspx"">Runsheet Cancel</a></li>")
+            Case "RUN_SPVMONCEN"
+                sb.Append("<li><a href=""SPV_Moncen.aspx"">View Runsheet Cabang</a></li>")
+                sb.Append("<li><a href=""SPVMONCEN_Cancel.aspx"">View Runsheet Cancel Cabang</a></li>")
+        End Select
+
+        'Halaman Simulator
+        Select Case Role
+            Case "ASS_OP"
+                sb.Append("<li><a href=""ChangeSector.aspx"">Master Data Sektor</a></li>")
+                sb.Append("<li><a href=""RepSummaryProblem.aspx"">Laporan Summary Problem</a></li>")
+        End Select
+
+        'Halaman Runsheet
+        Select Case Role
+            Case "CPC_OPR"
+                sb.Append("<li><a href=""Transaksi.aspx"">Transaksi</a></li>")
+            Case "CPC_SPV"
+                sb.Append("<li><a href=""Transaksi.aspx"">Transaksi</a></li>")
+                sb.Append("<li><a href=""Report.aspx"">Report</a></li>")
+        End Select
+
+        'Halaman BBM
+        Select Case Role
+            Case "BBM_INP"
+                sb.Append("<li><a href=""Inputer_BBM.aspx"">View BBM Usage</a></li>")
+                sb.Append("<li><a href=""Inputer_ViewDecline.aspx"">View Decline</a></li>")
+            Case "BBM_APR"
+                sb.Append("<li><a href=""SPV_BBM.aspx"">View BBM Usage</a></li>")
+                sb.Append("<li><a href=""SPV_ViewDecline.aspx"">View Decline</a></li>")
+            Case "BBM_ADM"
+                sb.Append("<li><a href=""Admin_BBM.aspx"">View BBM Usage Cabang</a></li>")
+                sb.Append("<li><a href=""Admin_PostingBBM.aspx"">Posting BBM Usage Cabang</a></li>")
+                sb.Append("<li><a href=""Admin_OpenApprove.aspx"">Open Approve BBM Usage Cabang</a></li>")
+                sb.Append("<li><a href=""Admin_MsJnsBB.aspx"">Master Jenis Bahan Bakar</a></li>")
+        End Select
+
+        'Halaman RQC
+        Select Case Role
+          
+            Case "RQC_OP"
+                sb.Append("<li><a href=""OP_CenconPage.aspx"">Pencatatan Cencon</a></li>")
+                sb.Append("<li><a href=""OP_ViewCLoseCencon.aspx"">View Cencon Close</a></li>")
+                sb.Append("<li><a href=""OP_QuestorPage.aspx"">Pencatatan Questor</a></li>")
+                sb.Append("<li><a href=""OP_ViewCLoseQuestor.aspx"">View Questor Close</a></li>")
+            Case "RQC_ADM"
+                sb.Append("<li><a href=""Admin_CenconPage.aspx""> Cencon</a></li>")
+                sb.Append("<li><a href=""Admin_QuestorPage.aspx""> Questor</a></li>")
+                sb.Append("<li><a href=""Admin_MsKota.aspx"">Master Kota</a></li>")
+                sb.Append("<li><a href=""Admin_MsLocation.aspx"">Master Lokasi</a></li>")
+                sb.Append("<li><a href=""Admin_MsATM.aspx"">Master ATM</a></li>")
+                sb.Append("<li><a href=""Admin_MsRF.aspx"">Master R/F</a></li>")
+                sb.Append("<li><a href=""Admin_MsProblem.aspx"">Master Problem</a></li>")
+                sb.Append("<li><a href=""Admin_MsCustody.aspx"">Master Custody</a></li>")
+            Case "RQC_AUDIT"
+                sb.Append("<li><a href=""Audit_ViewCencon.aspx"">Halaman Pencatatan Cencon</a></li>")
+                sb.Append("<li><a href=""Audit_ViewQuestor.aspx"">Halaman Pencatatan Questor</a></li>")
+         
+
+        End Select
+
+        sb.Append("</ul>")
+
+        Return sb.ToString
+    End Function
+
+End Class

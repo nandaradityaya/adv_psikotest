@@ -1,0 +1,114 @@
+
+/**********************************/
+/* CSS Document 							    */
+/* filename 	: style-page.css    */
+/**********************************/
+
+body{
+	font-family: Verdana,Tahoma,sans-serif;
+	font-size: 8pt;
+	color: #333333;
+}
+
+input,textarea,select{
+	font-family: Verdana,Tahoma,sans-serif;
+	font-size: 8pt;
+}
+
+table {
+	font-family: Verdana; 
+	font-size: 8pt;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #ccd2d2;
+	border-collapse: collapse;
+	background-color: #f9f9f9;
+	margin: 10px 0px;
+}
+
+th {
+	color: #FFFFFF;
+	font-size: 7pt;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 0.5em;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #ccd2d2;
+	border-collapse: collapse;
+	background-color: #7D7D7D;
+}
+
+td {
+	padding: 0.5em;
+	color: #272727;
+	vertical-align: top;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #ccd2d2;
+	border-collapse: collapse;
+}
+
+/*
+-- untuk menangani tampilan pagination
+*/
+
+ul{border:0; margin:0; padding:0;}
+
+#pagination li{
+  border:0; margin:0; padding:0;
+  font-size:11px;
+  list-style:none;
+}
+
+#pagination a{
+  border:solid 1px #DDDDDD;
+  margin-right:2px;
+}
+
+#pagination .previous-off,
+#pagination .next-off {
+  color:#666666;
+  display:block;
+  float:left;
+  font-weight:bold;
+  padding:3px 4px;
+}
+
+#pagination .next a,
+#pagination .previous a {
+  font-weight:bold;
+  border:solid 1px #FFFFFF;
+}
+
+#pagination .active{
+  color:#ff0084;
+  font-weight:bold;
+  display:block;
+  float:left;
+  padding:4px 6px;
+}
+
+#pagination a:link,
+#pagination a:visited {
+  color:#0063e3;
+  display:block;
+  float:left;
+  padding:3px 6px;
+  text-decoration:none;
+}
+
+#pagination a:hover{
+  border:solid 1px #666666;
+}
+
+/*
+-- tampilan tabel selang-seling 
+*/
+
+.odd {
+  background-color: #EDEFE9; 
+}
+.even {
+  background-color: #f9f9f9;
+}
