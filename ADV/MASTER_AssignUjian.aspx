@@ -4,6 +4,9 @@
 <%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+<%--    <link href="../assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/newAssets/css/bootstrap-extended.css" rel="stylesheet">
+    <link href="../assets/newAssets/css/app.css" rel="stylesheet">--%>
     <title>Master Assign Ujian - Psikotest</title>
     <script type="text/javascript">
         var rendererColorLblRek = function (value, meta, record, rowIndex, colIndex, store) {
@@ -297,6 +300,16 @@
             border: none;
         }
     </style>
+
+<%--    <script src="../assets/newAssets/js/bootstrap.bundle.min.js"></script>
+    <!--plugins-->
+    <script src="../assets/newAssets/js/jquery.min.js"></script>
+    <script src="../assets/newAssets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/newAssets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../assets/newAssets/plugins/select2/js/select2.min.js"></script>
+    <script src="../assets/newAssets/js/app.js"></script>--%>
+
+
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MenuHead" runat="server">
@@ -1775,6 +1788,572 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+
+    <div class="card">
+        <div class="card-header">
+            <div class="row mb-3">
+                <div class="col-12 col-lg-3">
+                    <label for="filerDateAwal" class="form-label">
+                        Start Date
+									Filter</label>
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control" id="startDatePsikotestResult"
+                            placeholder="dd/mm/yyyy">
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <label for="filerDateAwal" class="form-label">
+                        End Date
+									Filter</label>
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control" id="endDatePsikotestResult"
+                            placeholder="dd/mm/yyyy">
+                    </div>
+                </div>
+                <div class="col-12 col-lg-2">
+                    <label class="form-label">Test Status</label>
+                    <select class="single-select form-select">
+                        <option value="all">All</option>
+                        <option value="completed">Completed</option>
+                        <option value="inprogress">In Progress</option>
+                        <option value="notYet">Not Yet</option>
+                    </select>
+                </div>
+                <div class="col-12 col-lg-2">
+                    <label class="form-label">Interview Status</label>
+                    <select class="single-select form-select">
+                        <option value="all">All</option>
+                        <option value="completed">Completed</option>
+                        <option value="inprogress">In Progress</option>
+                        <option value="notYet">Not Yet</option>
+                    </select>
+                </div>
+                <div class="col-12 col-lg-2">
+                    <label class="form-label">Psikotest Result</label>
+                    <select class="single-select form-select">
+                        <option value="all">All</option>
+                        <option value="recommended">Recomended</option>
+                        <option value="notRecommended">Not Recommended</option>
+                        <option value="considered">Considered</option>
+                        <option value="notYet">Not Yet</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="d-flex align-items-center">
+                <div>
+                    <h5 class="font-weight-bold mb-0">Psikotest Result</h5>
+                </div>
+                <div class="ms-auto mt-2">
+                    <div class="btn-group-round">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-white tab-result selected" onclick="btnPsikotestResult(event, 'psikotestResult')">Psikotest</button>
+                            <button type="button" class="btn btn-white tab-result" onclick="btnPsikotestResult(event, 'interviewResult')">Interview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="psikotest-result" id="psikotestResult">
+                <div class="table-responsive">
+                    <br>
+                    <table id="tablePsikotestResult" class="table mb-0 align-middle" style="width: 100%">
+                        <thead class="table-light">
+                            <tr>
+                                <th>No</th>
+                                <th>Copy Link</th>
+                                <th>Batch</th>
+                                <th>No. Participant</th>
+                                <th>Name</th>
+                                <th>User ID</th>
+                                <th>Block</th>
+                                <th>Invitation</th>
+                                <th>Status</th>
+                                <th>Result</th>
+                                <th>Link Login</th>
+                                <th>Type Test</th>
+                                <th>Time Test</th>
+                                <th>Status Message</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><a href="#"><i class="bx bx-copy font-20 text-black"></i></a></td>
+                                <td>-</td>
+                                <td>874632</td>
+                                <td>Nanda Raditya</td>
+                                <td>847382</td>
+                                <td>Non Active</td>
+                                <td>1</td>
+                                <td>
+                                    <div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
+                                        Completed
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
+                                        Recommended
+                                    </div>
+                                </td>
+                                <td>https://10.203.19.adv...</td>
+                                <td>ATRA</td>
+                                <td>1 Feb 2024 15:02</td>
+                                <td>
+                                    <div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
+                                        Read
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary btn-sm radius-30 px-4" data-bs-toggle="modal" data-bs-target="#modalDetailResult">View Detail</button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><a href="#"><i class="bx bx-copy font-20 text-black"></i></a></td>
+                                <td>-</td>
+                                <td>874632</td>
+                                <td>Reza Setiawan</td>
+                                <td>847382</td>
+                                <td>Non Active</td>
+                                <td>1</td>
+                                <td>
+                                    <div class="badge rounded-pill text-warning bg-light-warning p-2 text-uppercase px-3">
+                                        Progress
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="badge rounded-pill text-danger bg-light-danger p-2 text-uppercase px-3">
+                                        Not Recommended
+                                    </div>
+                                </td>
+                                <td>https://10.203.19.adv...</td>
+                                <td>ATRA</td>
+                                <td>1 Feb 2024 15:02</td>
+                                <td>
+                                    <div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
+                                        Read
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary btn-sm radius-30 px-4" data-bs-toggle="modal" data-bs-target="#modalDetailResult">View Detail</button></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><a href="#"><i class="bx bx-copy font-20 text-black"></i></a></td>
+                                <td>-</td>
+                                <td>874632</td>
+                                <td>Nanda Raditya</td>
+                                <td>847382</td>
+                                <td>Non Active</td>
+                                <td>1</td>
+                                <td>
+                                    <div class="badge rounded-pill text-secondary bg-light-secondary p-2 text-uppercase px-3">
+                                        Not Yet
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="badge rounded-pill text-danger bg-light-danger p-2 text-uppercase px-3">
+                                        Not Recommended
+                                    </div>
+                                </td>
+                                <td>https://10.203.19.adv...</td>
+                                <td>ATRA</td>
+                                <td>1 Feb 2024 15:02</td>
+                                <td>
+                                    <div class="badge rounded-pill text-info bg-light-info p-2 text-uppercase px-3">
+                                        Sent
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary btn-sm radius-30 px-4" data-bs-toggle="modal" data-bs-target="#modalDetailResult">View Detail</button></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><a href="#"><i class="bx bx-copy font-20 text-black"></i></a></td>
+                                <td>-</td>
+                                <td>874632</td>
+                                <td>Angga Ramadan</td>
+                                <td>847382</td>
+                                <td>Non Active</td>
+                                <td>1</td>
+                                <td>
+                                    <div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
+                                        Completed
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="badge rounded-pill text-warning bg-light-warning p-2 text-uppercase px-3">
+                                        Considered
+                                    </div>
+                                </td>
+                                <td>https://10.203.19.adv...</td>
+                                <td>ATRA</td>
+                                <td>1 Feb 2024 15:02</td>
+                                <td>
+                                    <div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
+                                        Read
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary btn-sm radius-30 px-4" data-bs-toggle="modal" data-bs-target="#modalDetailResult">View Detail</button></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#"><i class="bx bx-copy font-20 text-black"></i></a></td>
+                                <td>-</td>
+                                <td>874632</td>
+                                <td>Natasha Romanof</td>
+                                <td>847382</td>
+                                <td>Non Active</td>
+                                <td>1</td>
+                                <td>
+                                    <div class="badge rounded-pill text-secondary bg-light-secondary p-2 text-uppercase px-3">
+                                        Not Yet
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="badge rounded-pill text-danger bg-light-danger p-2 text-uppercase px-3">
+                                        Not Recomended
+                                    </div>
+                                </td>
+                                <td>https://10.203.19.adv...</td>
+                                <td>ATRA</td>
+                                <td>1 Feb 2024 15:02</td>
+                                <td>
+                                    <div class="badge rounded-pill text-secondary bg-light-secondary p-2 text-uppercase px-3">
+                                        Pending
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary btn-sm radius-30 px-4" data-bs-toggle="modal" data-bs-target="#modalDetailResult">View Detail</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="psikotest-result" id="interviewResult" style="display: none;">
+                <div class="table-responsive">
+                    <br>
+                    <table id="tablePsikotestResult" class="table mb-0 align-middle" style="width: 100%">
+                        <thead class="table-light">
+                            <tr>
+                                <th>No</th>
+                                <th>Batch</th>
+                                <th>No. Participant</th>
+                                <th>Name</th>
+                                <th>Time Interview</th>
+                                <th>Location</th>
+                                <th>Status Interview</th>
+                                <th>Invitation</th>
+                                <th>Status Message</th>
+                                <th>Time Sent</th>
+                                <th>Time Read</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>-</td>
+                                <td>874632</td>
+                                <td>Nanda Raditya</td>
+                                <td>20 Feb 2024 13:00</td>
+                                <td>Online</td>
+                                <td>
+                                    <div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
+                                        Finished
+                                    </div>
+                                </td>
+                                <td>1</td>
+                                <td>
+                                    <div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
+                                        Read
+                                    </div>
+                                </td>
+                                <td>18 Feb 2024 12:00</td>
+                                <td>18 Feb 2024 12:16</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <button type="button" class="btn btn-outline-primary btn-sm radius-30 px-4 me-2" data-bs-toggle="modal" data-bs-target="#modalReinvite">Re-invite</button>
+                                        <button type="button" class="btn btn-outline-warning btn-sm radius-30 px-4" data-bs-toggle="modal" data-bs-target="#modalEditInterview">Edit</button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Box Invitation -->
+    <div class="modal" id="modalInvitation" tabindex="-1" aria-labelledby="modalDetailResultLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalInvitationLabel">Invite Participant</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center mb-2">
+                        <div class="btn-group-round">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-white tablinks selected" onclick="toggleBtn(event, 'psikotest')">Psikotest</button>
+                                <button type="button" class="btn btn-white tablinks" onclick="toggleBtn(event, 'interview')">Interview</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="invitation-body" id="psikotest">
+                        <div class="row">
+                            <div class="col-12 col-lg-6 mb-3">
+                                <label class="form-label">Batch</label>
+                                <select class="form-select" id="singleSelect">
+                                    <option value="" selected>Select batch...</option>
+                                    <option value="batch">Batch</option>
+                                    <option value="nonBatch">Non Batch</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-6 mb-3">
+                                <div class="filter-start">
+                                    <label for="filterStartDate" class="form-label">Date</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control startdate" id="datePsikotest"
+                                            placeholder="dd/mm/yyyy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 mb-3">
+                                <label class="form-label">Time</label>
+                                <input class="result form-control" type="text" id="timePsikotest" placeholder="Select time...">
+                            </div>
+                            <div class="col-12 col-lg-6 mb-3">
+                                <label class="form-label">Question Package</label>
+                                <select class="form-select" id="selectQuestionPackage">
+                                    <option value="" selected>Select Package...</option>
+                                    <option value="atra">ATRA</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="invitation-body" id="interview" style="display: none;">
+                        <div class="row">
+                            <div class="col-12 col-lg-4 mb-3">
+                                <label class="form-label">Batch</label>
+                                <select class="form-select" id="batchInterview">
+                                    <option value="" selected>Select batch...</option>
+                                    <option value="batch">Batch</option>
+                                    <option value="nonBatch">Non Batch</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-4 mb-3">
+                                <div class="filter-start">
+                                    <label for="filterStartDate" class="form-label">Date</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="dateInterview"
+                                            placeholder="dd/mm/yyyy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4 mb-3">
+                                <label class="form-label">Time</label>
+                                <input class="result form-control" type="text" id="timeInterview" placeholder="Select time...">
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="inputLocation" class="form-label">Location</label>
+                                <textarea class="form-control" id="inputLocation" placeholder="Location..." rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">
+                            Close</button>
+                        <button type="button" class="btn btn-success">Send</button>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
+
+    <!-- Modal Box Detail Result-->
+    <div class="modal" id="modalDetailResult" tabindex="-1" aria-labelledby="modalDetailResultLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalDetailResultLabel">Detail Results</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-3">
+                        <img src="../assets/newAssets/images/avatars/nanda.jpg" alt="participant" class="rounded-circle p-1 bg-primary" width="110">
+                    </div>
+                    <div class="row ">
+                        <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
+                            <label for="disabledNIK">No. Participant</label>
+                            <p class="font-weight-bold">18</p>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
+                            <label for="disabledName">Name</label>
+                            <p class="font-weight-bold">Nanda Raditya</p>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
+                            <label for="disabledName">No. KTP</label>
+                            <p class="font-weight-bold">3678987498006753</p>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
+                            <label for="disabledHomeBase">Date of Birth</label>
+                            <p class="font-weight-bold">05 September 2000</p>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
+                            <label for="lokasiPenugasan">Address</label>
+                            <p class="font-weight-bold">Ampasit</p>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
+                            <label for="lokasiPenugasan">Phone Number</label>
+                            <p class="font-weight-bold">081234537890</p>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
+                            <label for="lokasiPenugasan">Email</label>
+                            <p class="font-weight-bold">nandaraditya80@gmail.com</p>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
+                            <label for="lokasiPenugasan">Apply as</label>
+                            <p class="font-weight-bold">Front-end Developer</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-3">
+                            <div class="card radius-10 bg-light-success border-success">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <h6 class="mb-2 text-success">AT-IPP-01</h6>
+                                        <h4 class="text-success mb-0">10<span>/9</span></h4>
+                                        <p class="mb-0 text-success">Enough</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <div class="card radius-10 bg-light-danger border-danger">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <h6 class="mb-2 text-danger">AT-IPP-02</h6>
+                                        <h4 class="text-danger mb-0">5<span>/9</span></h4>
+                                        <p class="mb-0 text-danger">Bad</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <div class="card radius-10 bg-light-success border-success">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <h6 class="mb-2 text-success">AT-IPP-03</h6>
+                                        <h4 class="text-success mb-0">82<span>/40</span></h4>
+                                        <p class="mb-0 text-success">Very Good</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <div class="card radius-10 bg-light-success border-success">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <h6 class="mb-2 text-success">I-PT-07</h6>
+                                        <h4 class="text-success mb-0">32<span>/22</span></h4>
+                                        <p class="mb-0 text-success">Good</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Box Re-Invite -->
+    <div class="modal" id="modalReinvite" tabindex="-1" aria-labelledby="modalReinviteLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalReinviteLabel">Re-invite Participant</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure want to re-invite this participant?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary radius-8"
+                        data-bs-dismiss="modal">
+                        Cancel</button>
+                    <button type="button" class="btn btn-primary radius-8">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Box Edit -->
+    <div class="modal" id="modalEditInterview" tabindex="-1" aria-labelledby="modalEditInterviewLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditInterviewLabel">Edit Interview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label class="form-label">Batch</label>
+                            <select class="form-select" id="editInterview">
+                                <option value="" selected>Select batch...</option>
+                                <option value="batch">Batch</option>
+                                <option value="nonBatch">Non Batch</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <div class="filter-start">
+                                <label for="filterStartDate" class="form-label">Date</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="editDateInterview"
+                                        placeholder="dd/mm/yyyy">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label class="form-label">Time</label>
+                            <input class="result form-control" type="text" id="editTimeInterview" placeholder="Select time...">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="inputLocation" class="form-label">Location</label>
+                            <textarea class="form-control" id="inputLocation" placeholder="Location..." rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary radius-8"
+                        data-bs-dismiss="modal">
+                        Cancel</button>
+                    <button type="button" class="btn btn-primary radius-8">Save</button>
+                </div>
             </div>
         </div>
     </div>
