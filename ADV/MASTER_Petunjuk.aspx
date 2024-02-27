@@ -201,4 +201,204 @@
             </Items>
         </ext:Window>
     </form>
+
+
+    <!--breadcrumb-->
+				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+					<div class="breadcrumb-title pe-3">Instruction</div>
+					<div class="ps-3">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb mb-0 p-0">
+							  <li class="breadcrumb-item"><a href="applicant-data.html"><i class="bx bx-home-alt"></i></a>
+							  </li>
+							  <li class="breadcrumb-item active" aria-current="page">Instruction</li>
+							</ol>
+						  </nav>
+					</div>
+				</div>
+				<!--end breadcrumb-->
+
+				<div class="card radius-10">
+					<div class="card-body">
+						<div class="card-header">
+							<div class="row mb-3">
+								<div class="col-12 col-lg-4">
+									<label for="filerDateAwal" class="form-label">Start Date
+										Filter</label>
+									<div class="input-group mb-2">
+										<input type="text" class="form-control" id="startDateFilterInstruction"
+											placeholder="dd/mm/yyyy">
+									</div>
+								</div>
+								<div class="col-12 col-lg-4">
+									<label for="filerDateAwal" class="form-label">End Date
+										Filter</label>
+									<div class="input-group mb-2">
+										<input type="text" class="form-control" id="endDateFilterInstruction"
+											placeholder="dd/mm/yyyy">
+									</div>
+								</div>
+								<div class="col-12 col-lg-4">
+									<label class="form-label">Status</label>
+									<select class="single-select form-select">
+										<option value="all">All</option>
+										<option value="active">Active</option>
+										<option value="nonActive">Non Active</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="d-flex align-items-center">
+							<div>
+								<h5 class="mb-0">Instruction</h5>
+							</div>
+							<div class="ms-auto mt-2">
+								<!-- <button type="button" class="btn btn-primary radius-8 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#addNewQuestion"><i class="bx bx-plus"></i>Add New</button> -->
+								<a type="button" class="btn btn-primary radius-8 d-flex align-items-center text-white" data-bs-toggle="modal" data-bs-target="#modalAddNewInstruction"><i class="bx bx-plus"></i>Add New</a>
+							</div>
+						</div>
+						<div class="">
+							<div id="printbar" style="float:right"></div>
+							<br>
+							<table id="tableInstruction" class="table mb-0 align-middle" style="width:100%">
+								<thead class="table-light">
+									<tr>
+										<th>No. Instruction</th>
+										<th>Instruction</th>
+										<th>Status</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>
+											Petunjuk baru input dari 223
+											<br><br>
+											1. Pilih salah satu pilihan sj!
+											<br>
+											2. Hasil ujian tidak bisa diganggugugat!
+											<br>
+											3. Hanya boleh tanya hal-hal yang sangat penting.
+											<br><br>
+											Berdoa sebelum memulai ujian agar mendapat nilai yang memuaskan!
+											<br><br>
+											HORE!!!
+										</td>
+										<td><div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
+											Active</div></td>
+										<td>
+											<div class="d-flex order-actions">
+												<a type="button" class="text-primary bg-light-primary border-0 me-3" data-bs-toggle="modal" data-bs-target="#modalEditInstruction"><i class="bx bxs-edit"></i></a>
+												<a type="button" class="text-danger bg-light-danger border-0" data-bs-toggle="modal" data-bs-target="#modalDelete"><i class="bx bxs-trash"></i></a>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				
+
+				<!-- Modal Box Add New Instruction -->
+				<div class="modal" id="modalAddNewInstruction" tabindex="-1"
+					aria-labelledby="modalAddNewInstructionLabel" aria-hidden="true">
+					<div class="modal-dialog modal-xl">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="modalAddNewInstructionLabel">Add New Instruction</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<div class="mb-3">
+									<div id="div_editor1">
+										<!-- <p>This is a default toolbar demo of Rich text editor.</p> -->
+									</div>
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Status</label>
+									<div class="d-flex align-items-center">
+										<div class="form-check me-2">
+											<input class="form-check-input" type="radio" name="flexRadioStatus" id="radioActiveStatus">
+											<label class="form-check-label ps-0" for="radioActiveStatus">Active</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="flexRadioStatus" id="radioInactiveStatus">
+											<label class="form-check-label ps-0" for="radioInactiveStatus">Inactive</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-bs-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Save</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Modal Box Edit Instruction -->
+				<div class="modal" id="modalEditInstruction" tabindex="-1"
+					aria-labelledby="modalEditInstructionLabel" aria-hidden="true">
+					<div class="modal-dialog modal-xl">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="modalEditInstructionLabel">Edit Instruction</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<div class="mb-3">
+									<div id="div_editor2">
+										<!-- <p>This is a default toolbar demo of Rich text editor.</p> -->
+									</div>
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Status</label>
+									<div class="d-flex align-items-center">
+										<div class="form-check me-2">
+											<input class="form-check-input" type="radio" name="flexRadioStatus" id="radioActiveStatus">
+											<label class="form-check-label ps-0" for="radioActiveStatus">Active</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="flexRadioStatus" id="radioInactiveStatus">
+											<label class="form-check-label ps-0" for="radioInactiveStatus">Inactive</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-bs-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Save</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Modal Box Delete -->
+				<div class="modal" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="modalDeleteLabel">Delete Question</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								Are you sure want to delete this package?
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary radius-8"
+									data-bs-dismiss="modal">Cancel</button>
+								<button type="button" class="btn btn-danger radius-8">Delete</button>
+							</div>
+						</div>
+					</div>
+				</div>
 </asp:Content>
