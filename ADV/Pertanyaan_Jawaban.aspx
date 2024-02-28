@@ -1448,7 +1448,7 @@
     </div>
 
     <!-- Modal Box Add By Import -->
-    <div class="modal" id="modalAddByImport" tabindex="-1" aria-labelledby="modalAddByImportLabel"
+    <div class="modal fade" id="modalAddByImport" tabindex="-1" aria-labelledby="modalAddByImportLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -1479,7 +1479,7 @@
 
 
     <!-- Modal Box Instruction -->
-    <div class="modal" id="modalInstruction" tabindex="-1" aria-labelledby="modalInstructionLabel" aria-hidden="true">
+    <div class="modal fade" id="modalInstruction" tabindex="-1" aria-labelledby="modalInstructionLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1523,7 +1523,7 @@
     </div>
 
     <!-- Modal Box Delete -->
-    <div class="modal" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+    <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">

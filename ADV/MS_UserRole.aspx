@@ -86,6 +86,20 @@
 
     <div class="card radius-10">
         <div class="card-body">
+            <%-- Show this if success add new --%>
+            <div class="alert border-0 border-start border-5 border-success alert-dismissible fade show py-2">
+                <div class="d-flex align-items-center">
+                    <div class="font-35 text-success">
+                        <i class="bx bxs-check-circle"></i>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0 text-success">Success</h6>
+                        <div>Congrats, you successfully add new role!</div>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <%-- END --%>
             <div class="d-flex align-items-center">
                 <div>
                     <h5 class="mb-0">User Role</h5>
@@ -129,7 +143,7 @@
 
 
     <!-- Modal Box Add New Role -->
-    <div class="modal" id="modalAddNewRole" tabindex="-1"
+    <div class="modal fade" id="modalAddNewRole" tabindex="-1"
         aria-labelledby="modalAddNewRoleLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -188,7 +202,7 @@
     </div>
 
     <!-- Modal Box Edit Role -->
-    <div class="modal" id="modalEditRole" tabindex="-1"
+    <div class="modal fade" id="modalEditRole" tabindex="-1"
         aria-labelledby="modalEditRoleLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -248,17 +262,17 @@
 
 
     <!-- Modal Box Delete -->
-    <div class="modal" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+    <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalDeleteLabel">Delete Question</h5>
+                    <h5 class="modal-title" id="modalDeleteLabel">Delete Role</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                         aria-label="Close">
                     </button>
                 </div>
                 <div class="modal-body">
-                    Are you sure want to delete this package?
+                    Are you sure want to delete this role?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary radius-8"
@@ -271,5 +285,4 @@
     </div>
 
     <%-- END NEW FRONT END --%>
-
 </asp:Content>

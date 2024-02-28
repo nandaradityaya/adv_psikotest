@@ -1216,388 +1216,422 @@
     <%-- NEW FRONT END --%>
 
     <!--breadcrumb-->
-				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Questions</div>
-					<div class="ps-3">
-						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb mb-0 p-0">
-							  <li class="breadcrumb-item"><a href="applicant-data.html"><i class="bx bx-home-alt"></i></a>
-							  </li>
-							  <li class="breadcrumb-item" aria-current="page"><a href="questions.html">Questions Package</a></li>
-							  <li class="breadcrumb-item active" aria-current="page">Group Question</li>
-							</ol>
-						  </nav>
-					</div>
-				</div>
-				<!--end breadcrumb-->
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+        <div class="breadcrumb-title pe-3">Questions</div>
+        <div class="ps-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 p-0">
+                    <li class="breadcrumb-item"><a href="applicant-data.html"><i class="bx bx-home-alt"></i></a>
+                    </li>
+                    <li class="breadcrumb-item" aria-current="page"><a href="questions.html">Questions Package</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Group Question</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!--end breadcrumb-->
 
-				<div class="card radius-10">
-					<div class="card-body">
-						<div class="d-flex align-items-center">
-							<div>
-								<h5 class="font-weight-bold mb-0">Group Question</h5>
-							</div>
-							<div class="ms-auto mt-2">
-								<!-- <button type="button" class="btn btn-primary radius-8 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#addNewQuestion"><i class="bx bx-plus"></i>Add New</button> -->
-								<a href="Pertanyaan_Jawaban.aspx" type="button" class="btn btn-primary radius-8 d-flex align-items-center"><i class="bx bx-plus"></i>Add New</a>
-							</div>
-						</div>
-						<div class="table-responsive">
-							<div id="printbar" style="float:right"></div>
-							<br>
-							<table id="questionsGroupTable" class="table mb-0 align-middle" style="width:100%">
-								<thead class="table-light">
-									<tr>
-										<th>No</th>
-										<th>No. Package</th>
-										<th>Name</th>
-										<th>Min. Question</th>
-										<th>Passing Score</th>
-										<th>Time Test (Minutes)</th>
-										<th>Random Question</th>
-										<th>Status</th>
-										<th>No. Instruction</th>
-										<th>User Input</th>
-										<th>Time Input</th>
-										<th>Action</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>1</td>
-										<td>4029</td>
-										<td>AT-IPP-01</td>
-										<td>20</td>
-										<td>9</td>
-										<td>5</td>
-										<td><div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
-											Active</div></td>
-										<td><div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
-												Active</div></td>
-										<td>10</td>
-										<td>w-888</td>
-										<td>20 Jan 2024</td>
-										<td><div class="d-flex order-actions">
-											<a href="Pertanyaan_Jawaban.aspx" type="button" class="text-primary bg-light-primary border-0 me-3"><i class="bx bxs-edit"></i></a>
-											<a type="button" class="text-danger bg-light-danger border-0" data-bs-toggle="modal" data-bs-target="#modalDelete"><i class="bx bxs-trash"></i></a>
-										</div></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-				
+    <div class="card radius-10">
+        <div class="card-body">
+            <%-- Show this if success add new --%>
+            <div class="alert border-0 border-start border-5 border-success alert-dismissible fade show py-2">
+                <div class="d-flex align-items-center">
+                    <div class="font-35 text-success">
+                        <i class="bx bxs-check-circle"></i>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0 text-success">Success</h6>
+                        <div>Congrats, you successfully add new group question!</div>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <%-- END --%>
+            <div class="d-flex align-items-center">
+                <div>
+                    <h5 class="font-weight-bold mb-0">Group Question</h5>
+                </div>
+                <div class="ms-auto mt-2">
+                    <!-- <button type="button" class="btn btn-primary radius-8 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#addNewQuestion"><i class="bx bx-plus"></i>Add New</button> -->
+                    <a href="Pertanyaan_Jawaban.aspx" type="button" class="btn btn-primary radius-8 d-flex align-items-center"><i class="bx bx-plus"></i>Add New</a>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <div id="printbar" style="float: right"></div>
+                <br>
+                <table id="questionsGroupTable" class="table mb-0 align-middle" style="width: 100%">
+                    <thead class="table-light">
+                        <tr>
+                            <th>No</th>
+                            <th>No. Package</th>
+                            <th>Name</th>
+                            <th>Min. Question</th>
+                            <th>Passing Score</th>
+                            <th>Time Test (Minutes)</th>
+                            <th>Random Question</th>
+                            <th>Status</th>
+                            <th>No. Instruction</th>
+                            <th>User Input</th>
+                            <th>Time Input</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>4029</td>
+                            <td>AT-IPP-01</td>
+                            <td>20</td>
+                            <td>9</td>
+                            <td>5</td>
+                            <td>
+                                <div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
+                                    Active
+                                </div>
+                            </td>
+                            <td>
+                                <div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
+                                    Active
+                                </div>
+                            </td>
+                            <td>10</td>
+                            <td>w-888</td>
+                            <td>20 Jan 2024</td>
+                            <td>
+                                <div class="d-flex order-actions">
+                                    <a href="Pertanyaan_Jawaban.aspx" type="button" class="text-primary bg-light-primary border-0 me-3"><i class="bx bxs-edit"></i></a>
+                                    <a type="button" class="text-danger bg-light-danger border-0" data-bs-toggle="modal" data-bs-target="#modalDelete"><i class="bx bxs-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-				<!-- Modal Box Add New Question -->
-				<div class="modal fade" id="addNewQuestion" tabindex="-1"
-					aria-labelledby="addNewQuestionLabel" aria-hidden="true">
-					<div class="modal-dialog modal-lg">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="addNewQuestionLabel">Add New Question Group</h5>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"
-									aria-label="Close"></button>
-							</div>
-							<div class="modal-body">
-								<div class="row">
-									<div class="col-lg-6 col-md-12 col-sm-12 mb-3">
-										<label for="groupName" class="form-label">Group Name</label>
-										<input type="text" class="form-control" id="groupName" placeholder="Group Name...">
-									</div>
-									<div class="col-lg-6 col-md-12 col-sm-12 mb-3">
-										<label for="passingGrade" class="form-label">Passing Score</label>
-										<input type="number" class="form-control" id="passingGrade" placeholder="Passing Score...">
-									</div>
-									<div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-										<label for="minQuestion" class="form-label">Min. Question</label>
-										<input type="number" class="form-control" id="minQuestion" placeholder="Minimum Question...">
-									</div>
-									
-									<div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-										<label for="timeTest" class="form-label">Time Test (Minutes)</label>
-										<input type="number" class="form-control" id="timeTest" placeholder="Time Test...">
-									</div>
-									<div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-										<label class="form-label">No. Instruction</label>
-										<select id="singleSelect" class="" data-placeholder="Choose anything" aria-describedby="detailInstruction">
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-										</select>
-										<div>Please check detail instuction <u type="button" class="text-primary" data-bs-toggle="modal" data-bs-target="#modalInstruction">Here</u></div>
-									</div> 
-									<div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-										<label class="form-label">Random Question</label>
-										<div class="d-flex">
-											<div class="form-check me-2">
-												<input class="form-check-input" type="radio" name="flexRadioRandom" id="radioActiveRandom">
-												<label class="form-check-label" for="radioActiveRandom">Active</label>
-											</div>
-											<div class="form-check">
-												<input class="form-check-input" type="radio" name="flexRadioRandom" id="radioInactiveRandom">
-												<label class="form-check-label" for="radioInactiveRandom">Inactive</label>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-										<label class="form-label">Kreplin Group</label>
-										<div class="d-flex">
-											<div class="form-check me-2">
-												<input class="form-check-input" type="radio" name="flexRadioKreplin" id="flexRadioYesKreplin">
-												<label class="form-check-label" for="flexRadioYesKreplin">Yes</label>
-											</div>
-											<div class="form-check">
-												<input class="form-check-input" type="radio" name="flexRadioKreplin" id="flexRadioNoKreplin">
-												<label class="form-check-label" for="flexRadioNoKreplin">No</label>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-										<label class="form-label">Priority</label>
-										<div class="d-flex">
-											<div class="form-check me-2">
-												<input class="form-check-input" type="radio" name="flexRadioPriority" id="flexRadioYesPriority">
-												<label class="form-check-label" for="flexRadioYesPriority">Yes</label>
-											</div>
-											<div class="form-check">
-												<input class="form-check-input" type="radio" name="flexRadioPriority" id="flexRadioNoPriority">
-												<label class="form-check-label" for="flexRadioNoPriority">No</label>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-										<label class="form-label">Status</label>
-										<div class="d-flex">
-											<div class="form-check me-2">
-												<input class="form-check-input" type="radio" name="flexRadioStatus" id="flexRadioActiveStatus">
-												<label class="form-check-label" for="flexRadioActiveStatus">Active</label>
-											</div>
-											<div class="form-check">
-												<input class="form-check-input" type="radio" name="flexRadioStatus" id="flexRadioInactiveStatus">
-												<label class="form-check-label" for="flexRadioInactiveStatus">Inactive</label>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary"
-									data-bs-dismiss="modal">Close</button>
-								<button type="button" class="btn btn-primary">Save</button>
-							</div>
-						</div>
-					</div>
-				</div>
 
-				<!-- Modal Box Add New Package -->
-				<div class="modal" id="editGroupQuestion" tabindex="-1"
-					aria-labelledby="editGroupQuestionLabel" aria-hidden="true">
-					<div class="modal-dialog modal-lg">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="editGroupQuestionLabel">Edit Question Group</h5>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"
-									aria-label="Close"></button>
-							</div>
-							<div class="modal-body">
-								<div class="row">
-									<div class="col-lg-6 col-md-12 col-sm-12 mb-3">
-										<label for="groupName" class="form-label">Group Name</label>
-										<input type="text" class="form-control" id="groupName" placeholder="Group Name...">
-									</div>
-									<div class="col-lg-6 col-md-12 col-sm-12 mb-3">
-										<label for="passingGrade" class="form-label">Passing Score</label>
-										<input type="number" class="form-control" id="passingGrade" placeholder="Passing Score...">
-									</div>
-									<div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-										<label for="minQuestion" class="form-label">Min. Question</label>
-										<input type="number" class="form-control" id="minQuestion" placeholder="Minimum Question...">
-									</div>
-									
-									<div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-										<label for="timeTest" class="form-label">Time Test (Minutes)</label>
-										<input type="number" class="form-control" id="timeTest" placeholder="Time Test...">
-									</div>
-									<div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-										<label class="form-label">No. Instruction</label>
-										<select id="singleSelectEdit" class="" data-placeholder="Choose anything" aria-describedby="detailInstruction">
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-										</select>
-										<div>Please check detail instuction <u type="button" class="text-primary" data-bs-toggle="modal" data-bs-target="#modalEditInstruction">Here</u></div>
-									</div> 
-									<div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-										<label class="form-label">Random Question</label>
-										<div class="d-flex">
-											<div class="form-check me-2">
-												<input class="form-check-input" type="radio" name="flexRadioRandom" id="radioActiveRandom">
-												<label class="form-check-label" for="radioActiveRandom">Active</label>
-											</div>
-											<div class="form-check">
-												<input class="form-check-input" type="radio" name="flexRadioRandom" id="radioInactiveRandom">
-												<label class="form-check-label" for="radioInactiveRandom">Inactive</label>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-										<label class="form-label">Kreplin Group</label>
-										<div class="d-flex">
-											<div class="form-check me-2">
-												<input class="form-check-input" type="radio" name="flexRadioKreplin" id="flexRadioYesKreplin">
-												<label class="form-check-label" for="flexRadioYesKreplin">Yes</label>
-											</div>
-											<div class="form-check">
-												<input class="form-check-input" type="radio" name="flexRadioKreplin" id="flexRadioNoKreplin">
-												<label class="form-check-label" for="flexRadioNoKreplin">No</label>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-										<label class="form-label">Priority</label>
-										<div class="d-flex">
-											<div class="form-check me-2">
-												<input class="form-check-input" type="radio" name="flexRadioPriority" id="flexRadioYesPriority">
-												<label class="form-check-label" for="flexRadioYesPriority">Yes</label>
-											</div>
-											<div class="form-check">
-												<input class="form-check-input" type="radio" name="flexRadioPriority" id="flexRadioNoPriority">
-												<label class="form-check-label" for="flexRadioNoPriority">No</label>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-										<label class="form-label">Status</label>
-										<div class="d-flex">
-											<div class="form-check me-2">
-												<input class="form-check-input" type="radio" name="flexRadioStatus" id="flexRadioActiveStatus">
-												<label class="form-check-label" for="flexRadioActiveStatus">Active</label>
-											</div>
-											<div class="form-check">
-												<input class="form-check-input" type="radio" name="flexRadioStatus" id="flexRadioInactiveStatus">
-												<label class="form-check-label" for="flexRadioInactiveStatus">Inactive</label>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary"
-									data-bs-dismiss="modal">Close</button>
-								<button type="button" class="btn btn-primary">Save</button>
-							</div>
-						</div>
-					</div>
-				</div>
+    <!-- Modal Box Add New Question -->
+    <div class="modal fade" id="addNewQuestion" tabindex="-1"
+        aria-labelledby="addNewQuestionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addNewQuestionLabel">Add New Question Group</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
+                            <label for="groupName" class="form-label">Group Name</label>
+                            <input type="text" class="form-control" id="groupName" placeholder="Group Name...">
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
+                            <label for="passingGrade" class="form-label">Passing Score</label>
+                            <input type="number" class="form-control" id="passingGrade" placeholder="Passing Score...">
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+                            <label for="minQuestion" class="form-label">Min. Question</label>
+                            <input type="number" class="form-control" id="minQuestion" placeholder="Minimum Question...">
+                        </div>
 
-				<!-- Modal Box Edit -->
-				<div class="modal" id="modalEditInstruction" tabindex="-1" aria-labelledby="modalEditInstructionLabel" aria-hidden="true">
-					<div class="modal-dialog modal-xl">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="modalEditInstructionLabel">Instruction</h5>
-								<button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#editGroupQuestion"></button>
-							</div>
-							<div class="modal-body">
-								<div class="">
-									<div id="printbar" style="float:right"></div>
-									<br>
-									<table id="tableInstruction" class="table mb-0 align-middle" style="width:100%">
-										<thead class="table-light">
-											<tr>
-												<th>No. Instruction</th>
-												<th>Instruction</th>
-												<th>Status</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>1</td>
-												<td>
-													Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto hic necessitatibus amet vero in delectus deserunt quos, natus minima, tenetur adipisci doloremque praesentium ullam facere. Rerum facilis expedita eum ea.
-												</td>
-												<td><div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
-													Active</div></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary radius-8"
-								data-bs-toggle="modal" data-bs-target="#editGroupQuestion">Back</button>
-							</div>
-						</div>
-					</div>
-				</div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+                            <label for="timeTest" class="form-label">Time Test (Minutes)</label>
+                            <input type="number" class="form-control" id="timeTest" placeholder="Time Test...">
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+                            <label class="form-label">No. Instruction</label>
+                            <select id="singleSelect" class="" data-placeholder="Choose anything" aria-describedby="detailInstruction">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <div>Please check detail instuction <u type="button" class="text-primary" data-bs-toggle="modal" data-bs-target="#modalInstruction">Here</u></div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+                            <label class="form-label">Random Question</label>
+                            <div class="d-flex">
+                                <div class="form-check me-2">
+                                    <input class="form-check-input" type="radio" name="flexRadioRandom" id="radioActiveRandom">
+                                    <label class="form-check-label" for="radioActiveRandom">Active</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioRandom" id="radioInactiveRandom">
+                                    <label class="form-check-label" for="radioInactiveRandom">Inactive</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+                            <label class="form-label">Kreplin Group</label>
+                            <div class="d-flex">
+                                <div class="form-check me-2">
+                                    <input class="form-check-input" type="radio" name="flexRadioKreplin" id="flexRadioYesKreplin">
+                                    <label class="form-check-label" for="flexRadioYesKreplin">Yes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioKreplin" id="flexRadioNoKreplin">
+                                    <label class="form-check-label" for="flexRadioNoKreplin">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+                            <label class="form-label">Priority</label>
+                            <div class="d-flex">
+                                <div class="form-check me-2">
+                                    <input class="form-check-input" type="radio" name="flexRadioPriority" id="flexRadioYesPriority">
+                                    <label class="form-check-label" for="flexRadioYesPriority">Yes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioPriority" id="flexRadioNoPriority">
+                                    <label class="form-check-label" for="flexRadioNoPriority">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+                            <label class="form-label">Status</label>
+                            <div class="d-flex">
+                                <div class="form-check me-2">
+                                    <input class="form-check-input" type="radio" name="flexRadioStatus" id="flexRadioActiveStatus">
+                                    <label class="form-check-label" for="flexRadioActiveStatus">Active</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioStatus" id="flexRadioInactiveStatus">
+                                    <label class="form-check-label" for="flexRadioInactiveStatus">Inactive</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                        Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Box Add New Package -->
+    <div class="modal" id="editGroupQuestion" tabindex="-1"
+        aria-labelledby="editGroupQuestionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editGroupQuestionLabel">Edit Question Group</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
+                            <label for="groupName" class="form-label">Group Name</label>
+                            <input type="text" class="form-control" id="groupName" placeholder="Group Name...">
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
+                            <label for="passingGrade" class="form-label">Passing Score</label>
+                            <input type="number" class="form-control" id="passingGrade" placeholder="Passing Score...">
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+                            <label for="minQuestion" class="form-label">Min. Question</label>
+                            <input type="number" class="form-control" id="minQuestion" placeholder="Minimum Question...">
+                        </div>
+
+                        <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+                            <label for="timeTest" class="form-label">Time Test (Minutes)</label>
+                            <input type="number" class="form-control" id="timeTest" placeholder="Time Test...">
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+                            <label class="form-label">No. Instruction</label>
+                            <select id="singleSelectEdit" class="" data-placeholder="Choose anything" aria-describedby="detailInstruction">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <div>Please check detail instuction <u type="button" class="text-primary" data-bs-toggle="modal" data-bs-target="#modalEditInstruction">Here</u></div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+                            <label class="form-label">Random Question</label>
+                            <div class="d-flex">
+                                <div class="form-check me-2">
+                                    <input class="form-check-input" type="radio" name="flexRadioRandom" id="radioActiveRandom">
+                                    <label class="form-check-label" for="radioActiveRandom">Active</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioRandom" id="radioInactiveRandom">
+                                    <label class="form-check-label" for="radioInactiveRandom">Inactive</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+                            <label class="form-label">Kreplin Group</label>
+                            <div class="d-flex">
+                                <div class="form-check me-2">
+                                    <input class="form-check-input" type="radio" name="flexRadioKreplin" id="flexRadioYesKreplin">
+                                    <label class="form-check-label" for="flexRadioYesKreplin">Yes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioKreplin" id="flexRadioNoKreplin">
+                                    <label class="form-check-label" for="flexRadioNoKreplin">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+                            <label class="form-label">Priority</label>
+                            <div class="d-flex">
+                                <div class="form-check me-2">
+                                    <input class="form-check-input" type="radio" name="flexRadioPriority" id="flexRadioYesPriority">
+                                    <label class="form-check-label" for="flexRadioYesPriority">Yes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioPriority" id="flexRadioNoPriority">
+                                    <label class="form-check-label" for="flexRadioNoPriority">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+                            <label class="form-label">Status</label>
+                            <div class="d-flex">
+                                <div class="form-check me-2">
+                                    <input class="form-check-input" type="radio" name="flexRadioStatus" id="flexRadioActiveStatus">
+                                    <label class="form-check-label" for="flexRadioActiveStatus">Active</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioStatus" id="flexRadioInactiveStatus">
+                                    <label class="form-check-label" for="flexRadioInactiveStatus">Inactive</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                        Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Box Edit -->
+    <div class="modal" id="modalEditInstruction" tabindex="-1" aria-labelledby="modalEditInstructionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditInstructionLabel">Instruction</h5>
+                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#editGroupQuestion"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="">
+                        <div id="printbar" style="float: right"></div>
+                        <br>
+                        <table id="tableInstruction" class="table mb-0 align-middle" style="width: 100%">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>No. Instruction</th>
+                                    <th>Instruction</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto hic necessitatibus amet vero in delectus deserunt quos, natus minima, tenetur adipisci doloremque praesentium ullam facere. Rerum facilis expedita eum ea.
+                                    </td>
+                                    <td>
+                                        <div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
+                                            Active
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary radius-8"
+                        data-bs-toggle="modal" data-bs-target="#editGroupQuestion">
+                        Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal Box Instruction -->
-				<div class="modal" id="modalInstruction" tabindex="-1" aria-labelledby="modalInstructionLabel" aria-hidden="true">
-					<div class="modal-dialog modal-xl">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="modalInstructionLabel">Instruction</h5>
-								<button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#addNewQuestion"></button>
-							</div>
-							<div class="modal-body">
-								<div class="">
-									<div id="printbar" style="float:right"></div>
-									<br>
-									<table id="tableInstruction" class="table mb-0 align-middle" style="width:100%">
-										<thead class="table-light">
-											<tr>
-												<th>No. Instruction</th>
-												<th>Instruction</th>
-												<th>Status</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>1</td>
-												<td>
-													Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto hic necessitatibus amet vero in delectus deserunt quos, natus minima, tenetur adipisci doloremque praesentium ullam facere. Rerum facilis expedita eum ea.
-												</td>
-												<td><div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
-													Active</div></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary radius-8"
-								data-bs-toggle="modal" data-bs-target="#addNewQuestion">Back</button>
-							</div>
-						</div>
-					</div>
-				</div>
+    <div class="modal" id="modalInstruction" tabindex="-1" aria-labelledby="modalInstructionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalInstructionLabel">Instruction</h5>
+                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#addNewQuestion"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="">
+                        <div id="printbar" style="float: right"></div>
+                        <br>
+                        <table id="tableInstruction" class="table mb-0 align-middle" style="width: 100%">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>No. Instruction</th>
+                                    <th>Instruction</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto hic necessitatibus amet vero in delectus deserunt quos, natus minima, tenetur adipisci doloremque praesentium ullam facere. Rerum facilis expedita eum ea.
+                                    </td>
+                                    <td>
+                                        <div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
+                                            Active
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary radius-8"
+                        data-bs-toggle="modal" data-bs-target="#addNewQuestion">
+                        Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-				<!-- Modal Box Delete -->
-				<div class="modal" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
-					<div class="modal-dialog modal-lg">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="modalDeleteLabel">Delete Question</h5>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"
-									aria-label="Close"></button>
-							</div>
-							<div class="modal-body">
-								Are you sure want to delete this package?
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary radius-8"
-									data-bs-dismiss="modal">Cancel</button>
-								<button type="button" class="btn btn-danger radius-8">Delete</button>
-							</div>
-						</div>
-					</div>
-				</div>
+    <!-- Modal Box Delete -->
+    <div class="modal" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalDeleteLabel">Delete Group</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure want to delete this group?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary radius-8"
+                        data-bs-dismiss="modal">
+                        Cancel</button>
+                    <button type="button" class="btn btn-danger radius-8">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <%-- END NEW FRONT END --%>
 </asp:Content>

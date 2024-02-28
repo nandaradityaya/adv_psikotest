@@ -1262,6 +1262,20 @@
             </div>
         </div>
         <div class="card-body">
+            <%-- Show this if success add new --%>
+            <div class="alert border-0 border-start border-5 border-success alert-dismissible fade show py-2">
+                <div class="d-flex align-items-center">
+                    <div class="font-35 text-success">
+                        <i class="bx bxs-check-circle"></i>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0 text-success">Success</h6>
+                        <div>Congrats, you successfully add new question package!</div>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <%-- END --%>
             <div class="d-flex align-items-center">
                 <div>
                     <h5 class="font-weight-bold mb-0">Question Package</h5>
@@ -1270,6 +1284,7 @@
                     <button type="button" class="btn btn-primary radius-8 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#addNewQuestionPackage"><i class="bx bx-plus"></i>Add New</button>
                 </div>
             </div>
+
             <div class="table-responsive">
                 <div id="printbar" style="float: right"></div>
                 <br>
@@ -1336,7 +1351,7 @@
 
 
     <!-- Modal Box Add New Question Package -->
-    <div class="modal" id="addNewQuestionPackage" tabindex="-1"
+    <div class="modal fade" id="addNewQuestionPackage" tabindex="-1"
         aria-labelledby="addNewQuestionPackageLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -1394,7 +1409,7 @@
     </div>
 
     <!-- Modal Box Delete -->
-    <div class="modal" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+    <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
