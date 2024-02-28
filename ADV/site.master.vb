@@ -10,9 +10,9 @@ Partial Class ADVNet
 
     Public SiteRoot As String
     Public oes As New Encryption64
-    Protected Sub Page_Init(sender As Object, e As System.EventArgs) Handles Me.Init
-        LblVersion.Text = ConfigurationManager.AppSettings("AppVer").ToString
-    End Sub
+    'Protected Sub Page_Init(sender As Object, e As System.EventArgs) Handles Me.Init
+    '    LblVersion.Text = ConfigurationManager.AppSettings("AppVer").ToString
+    'End Sub
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
 
@@ -22,7 +22,7 @@ Partial Class ADVNet
             CheckUserPermission()
             CreateMenuAndBreadcrumbs()
             lblName.Text = Session("UserName")
-            lblUID.Text = Session("UserID")
+            'lblUID.Text = Session("UserID")
 
             Session("BaseURL") = ConfigurationManager.AppSettings("BaseURL").ToString
         End If
@@ -114,23 +114,23 @@ Partial Class ADVNet
                 dRowActiveMenu = oHelper.ExecuteDataRow
             End If
 
-            If Not dRowActiveMenu Is Nothing Then
-                ActivePath = MonyetSQLHelper.DBNull2BLank(dRowActiveMenu("LocationURL"))
-                P1ActiveMenuID = MonyetSQLHelper.DBNull2BLank(dRowActiveMenu("P1ActiveMenuID"))
-                P2ActiveMenuID = MonyetSQLHelper.DBNull2BLank(dRowActiveMenu("P2ActiveMenuID"))
-            End If
+            'If Not dRowActiveMenu Is Nothing Then
+            '    ActivePath = MonyetSQLHelper.DBNull2BLank(dRowActiveMenu("LocationURL"))
+            '    P1ActiveMenuID = MonyetSQLHelper.DBNull2BLank(dRowActiveMenu("P1ActiveMenuID"))
+            '    P2ActiveMenuID = MonyetSQLHelper.DBNull2BLank(dRowActiveMenu("P2ActiveMenuID"))
+            'End If
 
-            If dRowActiveMenu("MenuLevel") = 1 Then
-                BreadCrumbText = "<li class=""active""><a href=""../" & dRowActiveMenu("LocationURL") & """><i class=""fa " & dRowActiveMenu("MenuIcon") & """></i> " & dRowActiveMenu("MenuText") & "</a></li>"
-            ElseIf dRowActiveMenu("MenuLevel") = 2 Then
-                BreadCrumbText = "<li><i class=""fa " & dRowActiveMenu("P1MenuIcon") & """></i> " & dRowActiveMenu("P1MenuText") & "</li>"
-                BreadCrumbText &= "<li class=""active""><a href=""../" & dRowActiveMenu("LocationURL") & """> " & dRowActiveMenu("MenuText") & "</a></li>"
+            'If dRowActiveMenu("MenuLevel") = 1 Then
+            '    BreadCrumbText = "<li class=""active""><a href=""../" & dRowActiveMenu("LocationURL") & """><i class=""fa " & dRowActiveMenu("MenuIcon") & """></i> " & dRowActiveMenu("MenuText") & "</a></li>"
+            'ElseIf dRowActiveMenu("MenuLevel") = 2 Then
+            '    BreadCrumbText = "<li><i class=""fa " & dRowActiveMenu("P1MenuIcon") & """></i> " & dRowActiveMenu("P1MenuText") & "</li>"
+            '    BreadCrumbText &= "<li class=""active""><a href=""../" & dRowActiveMenu("LocationURL") & """> " & dRowActiveMenu("MenuText") & "</a></li>"
 
-            ElseIf dRowActiveMenu("MenuLevel") = 3 Then
-                BreadCrumbText = "<li><i class=""fa " & dRowActiveMenu("P1MenuIcon") & """></i> " & dRowActiveMenu("P1MenuText") & "</li>"
-                BreadCrumbText &= "<li>" & dRowActiveMenu("P2MenuText") & "</li>"
-                BreadCrumbText &= "<li class=""active""><a href=""../" & dRowActiveMenu("LocationURL") & """>" & dRowActiveMenu("MenuText") & "</a></li>"
-            End If
+            'ElseIf dRowActiveMenu("MenuLevel") = 3 Then
+            '    BreadCrumbText = "<li><i class=""fa " & dRowActiveMenu("P1MenuIcon") & """></i> " & dRowActiveMenu("P1MenuText") & "</li>"
+            '    BreadCrumbText &= "<li>" & dRowActiveMenu("P2MenuText") & "</li>"
+            '    BreadCrumbText &= "<li class=""active""><a href=""../" & dRowActiveMenu("LocationURL") & """>" & dRowActiveMenu("MenuText") & "</a></li>"
+            'End If
 
 
 
@@ -244,7 +244,7 @@ Partial Class ADVNet
 
         End Using
 
-        ltlmenu1.Text = sbMenu.ToString
+        'ltlmenu1.Text = sbMenu.ToString
         'ltlBreadCrumb.Text = BreadCrumbText
     End Sub
     Private Sub setupSaldoKredit()

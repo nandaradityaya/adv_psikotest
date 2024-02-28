@@ -28,12 +28,12 @@ File: app.css
 /* General */
 
 body {
-    font-size: 14px;
+    font-size: 14px !important;
     color: #525f7f;
     background-color: #f8f9fe;
     letter-spacing: 0.5px;
     overflow-x: hidden;
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto", sans-serif !important;
 }
 
 a {
@@ -91,7 +91,7 @@ a {
 .toggle-icon {
     font-size: 22px;
     cursor: pointer;
-    color: #0727d7;
+    color: #0d6efd;
 }
 
 /* Header */
@@ -253,7 +253,7 @@ a {
     .sidebar-wrapper .metismenu a:focus,
     .sidebar-wrapper .metismenu a:active,
     .sidebar-wrapper .metismenu .mm-active > a {
-        color: #0727d7;
+        color: #0d6efd;
         text-decoration: none;
         background: rgb(136 51 255 / 12%);
     }
@@ -410,7 +410,7 @@ a {
     border-radius: 10px;
     bottom: 20px;
     right: 12px;
-    background-color: #0727d7;
+    background-color: #0d6efd;
     z-index: 5;
 }
 
@@ -423,6 +423,10 @@ a {
 .breadcrumb-title {
     font-size: 20px;
     border-right: 1.5px solid #aaa4a4;
+}
+
+.breadcrumb {
+    background-color: transparent!important;
 }
 
 .page-breadcrumb .breadcrumb li.breadcrumb-item {
@@ -570,7 +574,7 @@ a {
     }
 
     .fm-menu .list-group a:hover {
-        background: #0727d7;
+        background: #0d6efd;
         color: #ffffff;
         transition: all 0.2s ease-out;
     }
@@ -817,7 +821,7 @@ a {
     .invoice header {
         padding: 10px 0;
         margin-bottom: 20px;
-        border-bottom: 1px solid #0727d7;
+        border-bottom: 1px solid #0d6efd;
     }
 
     .invoice .company-details {
@@ -848,7 +852,7 @@ a {
 
         .invoice .invoice-details .invoice-id {
             margin-top: 0;
-            color: #0727d7;
+            color: #0d6efd;
         }
 
     .invoice main {
@@ -863,7 +867,7 @@ a {
 
         .invoice main .notices {
             padding-left: 6px;
-            border-left: 6px solid #0727d7;
+            border-left: 6px solid #0d6efd;
             background: #e7f2ff;
             padding: 10px;
         }
@@ -895,7 +899,7 @@ a {
         .invoice table td h3 {
             margin: 0;
             font-weight: 400;
-            color: #0727d7;
+            color: #0d6efd;
             font-size: 1.2em;
         }
 
@@ -909,7 +913,7 @@ a {
         .invoice table .no {
             color: #fff;
             font-size: 1.6em;
-            background: #0727d7;
+            background: #0d6efd;
         }
 
         .invoice table .unit {
@@ -917,7 +921,7 @@ a {
         }
 
         .invoice table .total {
-            background: #0727d7;
+            background: #0d6efd;
             color: #fff;
         }
 
@@ -940,9 +944,9 @@ a {
         }
 
         .invoice table tfoot tr:last-child td {
-            color: #0727d7;
+            color: #0d6efd;
             font-size: 1.4em;
-            border-top: 1px solid #0727d7;
+            border-top: 1px solid #0d6efd;
         }
 
         .invoice table tfoot tr td:first-child {
@@ -1108,7 +1112,7 @@ a {
 
 .chat-tab-menu .nav-pills .nav-link.active,
 .chat-tab-menu .nav-pills .show > .nav-link {
-    color: #0727d7;
+    color: #0d6efd;
     background-color: rgb(0 123 255 / 0%);
 }
 
@@ -1290,7 +1294,7 @@ a {
     }
 
     .email-navigation a.list-group-item.active {
-        color: #0727d7;
+        color: #0d6efd;
         font-weight: 600;
         background-color: rgb(136 51 255 / 15%);
     }
@@ -1409,8 +1413,8 @@ a {
 /* Navs and Tabs */
 
 .nav-primary.nav-tabs .nav-link.active {
-    color: #0727d7;
-    border-color: #0727d7 #0727d7 #fff;
+    color: #0d6efd;
+    border-color: #0d6efd #0d6efd #fff;
 }
 
 .nav-danger.nav-tabs .nav-link.active {
@@ -1688,7 +1692,7 @@ a {
 
 .authentication-header {
     position: absolute;
-    background: #0727d7;
+    background: #0d6efd;
     top: 0;
     left: 0;
     right: 0;
@@ -2171,7 +2175,7 @@ input::placeholder {
     height: 40px;
     line-height: 40px;
     font-size: 24px;
-    background: #0727d7;
+    background: #0d6efd;
     box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.13);
     color: #fff;
     text-align: center;
@@ -2409,12 +2413,12 @@ input::placeholder {
 }
 
 .tablinks.selected {
-    background-color: #0727d7;
+    background-color: #0d6efd;
     color: #ffffff;
 }
 
 .tab-result.selected {
-    background-color: #0727d7;
+    background-color: #0d6efd;
     color: #ffffff;
 }
 
@@ -2501,7 +2505,7 @@ input::placeholder {
     vertical-align: middle;
     width: 35px;
     height: 35px;
-    background-color: #fff;
+    background-color: #bdbdbd;
     border-radius: 50%;
 }
 
@@ -2509,7 +2513,7 @@ input::placeholder {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
-    color: #1d1d1d;
+    color: #fff;
 }
 
 .nav-question.done {
@@ -2534,7 +2538,7 @@ input::placeholder {
     vertical-align: middle;
     width: 35px;
     height: 35px;
-    background-color: #0727d7;
+    background-color: #0d6efd;
     border-color: transparent;
     border-radius: 50%;
 }
@@ -2557,18 +2561,48 @@ input::placeholder {
 .icon-plus-bg {
     position: absolute;
     right: 1%;
-    top: 3%;
+    top: 14%;
     z-index: 1;
 }
 
 .icon-round-bg {
     position: absolute;
     right: 8%;
-    top: -1%;
+    top: 6%;
+    z-index: 1;
+}
+
+.icon-plus-bg-psikotest {
+    position: absolute;
+    right: 1%;
+    top: 8%;
+    z-index: 1;
+}
+
+.icon-round-bg-psikotest {
+    position: absolute;
+    right: 8%;
+    top: 3%;
     z-index: 1;
 }
 
 .scroll-test {
-    position: relative;
-    height: 500px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+.form-check + .form-check {
+    margin-top: 0px !important;
+}
+
+.nav-link {
+    padding: 0.5rem 1rem;
+}
+
+.form-check-label {
+    padding-left: 0rem;
 }

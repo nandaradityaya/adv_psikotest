@@ -1,7 +1,7 @@
 ﻿<%@ Master Language="VB" CodeFile="site.master.vb" Inherits="ADVNet" %>
 
 <!DOCTYPE html>
-<html>
+<html class="color-sidebar sidebarcolor3">
 <head id="Head1" runat="server">
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="./assets/img/index.ico" type="image/x-icon" />
@@ -37,7 +37,6 @@
     <link href="../assets/newAssets/plugins/fullcalendar/css/main.min.css" rel="stylesheet" />
     <link href="../assets/newAssets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
     <link href="../assets/newAssets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
-    <link href="../assets/newAssets/plugins/highcharts/css/highcharts.css" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/newAssets/libraries/gijgo/css/gijgo.min.css">
     <link href="../assets/newAssets/plugins/select2/css/select2.min.css" rel="stylesheet" />
     <link href="../assets/newAssets/plugins/select2/css/select2-bootstrap4.css" rel="stylesheet" />
@@ -63,12 +62,12 @@
 
     <!-- AdminLTE Skins. Choose a skin from the css/skins 
          folder instead of downloading all of them to reduce the load. -->
-    <link href="<% = Session("BaseURL").ToString%>/assets/dist/css/skins/skin-purple.min.css" rel="stylesheet" type="text/css" />
+<%--    <link href="<% = Session("BaseURL").ToString%>/assets/dist/css/skins/skin-purple.min.css" rel="stylesheet" type="text/css" />--%>
 
 
 
     <!-- ganti semua file di folder skin menggunakan latest version -->
-    <style type="text/css">
+    <%--<style type="text/css">
         .ReadOnly {
             background-image: none;
             background-color: #7FFFD4;
@@ -81,7 +80,7 @@
         .inputnonaktif {
             background-color: #ff765b;
         }
-    </style>
+    </style>--%>
 
 
     <script type="text/javascript">
@@ -149,88 +148,176 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body class="skin-purple" style="font-size: 0.85rem;">
+<body>
 
     <div class="wrapper">
 
-        <header class="main-header">
-            <!-- Logo -->
-            <a href="/MASTER_AssignUjian.aspx" class="logo">DCT RECRUITMENT</a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation" style="padding: 0px;">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                </a>
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <!-- Messages: style can be found in dropdown.less-->
-
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <span class="hidden-xs">
-                                    <asp:Label runat="server" ID="lblName"></asp:Label></span>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="width: 100px !important;">
-                                <!-- Menu Body -->
-                                <!-- Menu Footer-->
-                                <a href="<% = Session("BaseURL").ToString%>/logout.aspx" class="dropdown-item">Log out</a>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <asp:Label runat="server" ID="lblSaldoKredit"></asp:Label>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- Left side column. contains the logo and sidebar -->
-        <aside class="main-sidebar">
-            <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
-                <!-- Sidebar user panel -->
-                <div class="user-panel">
-                    <div class="pull-left info">
-                        <p>
-                            <asp:Label runat="server" ID="lblUID"></asp:Label>
-                        </p>
-                        <a title="Logout" href="<% = Session("BaseURL").ToString%>/logout.aspx">
-                            <img src="<% = Session("BaseURL").ToString%>/assets/img/exit.png" />
-                        </a>
-                        <%--                        <a title="Ganti Password" href="/Default.aspx">
-                            <img src="/assets/img/change_pass.png" />
-                        </a>--%>
-                    </div>
-                </div>
-                <!-- search form -->
-                <!-- /.search form -->
-                <!-- sidebar menu: : style can be found in sidebar.less -->
-                <ul class="sidebar-menu">
-                    <li class="header">MAIN NAVIGATION</li>
-                    <asp:Literal runat="server" ID="ltlmenu1"></asp:Literal>
-                    <%--                    <li <% Response.Write(ActiveMenu(Request.Path, "MASTER_Pertanyaan.aspx"))%>>
-                        <a href="MASTER_Pertanyaan.aspx"><i class="fa fa-archive" title="Master Pertanyaan" ></i><span class="nav-label">Master Pertanyaan</span></a>
-                    </li>
-                    <li <% Response.Write(ActiveMenu(Request.Path, "MASTER_AssignUjian.aspx"))%>>
-                        <a href="MASTER_AssignUjian.aspx"><i class="fa fa-graduation-cap" title="Master Ujian"></i><span class="nav-label">Master Ujian</span></a>
-                    </li>
-                    <li <% Response.Write(ActiveMenu(Request.Path, "MASTER_Petunjuk.aspx"))%>>
-                        <a href="MASTER_Petunjuk.aspx"><i class="fa fa-list" title="Master Petunjuk"></i><span class="nav-label">Master Petunjuk</span></a>
-                    </li>--%>
-                    <asp:Literal runat="server" ID="ltlMenu" EnableViewState="false"></asp:Literal>
-                </ul>
-            </section>
-            <!-- /.sidebar -->
-        </aside>
+       		<!--sidebar wrapper -->
+		<div class="sidebar-wrapper" data-simplebar="true">
+			<div class="sidebar-header">
+				<!-- <div>
+					<img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+				</div> -->
+				<div style="margin-left: 24px;">
+					<a href="Master_AssignUjian.aspx" class="logo-text" style="font-family: 'Segoe UI Black';">
+						<span style="font-size: 18px; font-style: italic">DCT</span>
+						<span style="font-size: 15px; text-decoration:overline ">Recruitment</span>
+					</a>
+				</div>
+				<div class="toggle-icon ms-auto"><i class='bx bx-first-page'></i>
+				</div>
+			</div>
+			<!--navigation-->
+			<ul class="metismenu" id="menu">
+				<li class="menu-label">Menu</li>
+				<li class="mm-active">
+					<a href="Master_AssignUjian.aspx">
+						<div class="parent-icon"><i class='bx bx-id-card'></i>
+						</div>
+						<div class="menu-title">Applicant Data</div>
+					</a>
+				</li>
+				<li>
+					<a href="Master_Pertanyaan.aspx">
+						<div class="parent-icon"><img src="../assets/newAssets/images/icons/ic_task.svg" alt="ic_task">
+						</div>
+						<div class="menu-title">Questions</div>
+					</a>
+				</li>
+				<li>
+					<a href="MASTER_Petunjuk.aspx">
+						<div class="parent-icon"><img src="../assets/newAssets/images/icons/ic_book_exclamation.svg" alt="ic_book_exclamation">
+						</div>
+						<div class="menu-title">Instruction</div>
+					</a>
+				</li>
+				<li>
+					<a href="MS_User.aspx">
+						<div class="parent-icon"><i class='bx bx-user'></i>
+						</div>
+						<div class="menu-title">User</div>
+					</a>
+				</li>
+				<li>
+					<a href="MS_UserRole.aspx">
+						<div class="parent-icon"><img src="../assets/newAssets/images/icons/ic_users_role.svg" alt="ic_users_role">
+						</div>
+						<div class="menu-title">User Role</div>
+					</a>
+				</li>
+				<li>
+					<a href="MS_SysParameter.aspx">
+						<div class="parent-icon"><i class='bx bx-square'></i>
+						</div>
+						<div class="menu-title">Parameter</div>
+					</a>
+				</li>
+			</ul>
+			<!--end navigation-->
+		</div>
+		<!--end sidebar wrapper -->
+		<!--start header -->
+		<header>
+			<div class="topbar d-flex align-items-center">
+				<nav class="navbar navbar-expand">
+					<div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
+					</div>
+					<div class="top-menu ms-auto">
+						<ul class="navbar-nav align-items-center" >
+							<li class="nav-item">
+								<p class="mb-0 text-info">
+									<asp:Label runat="server" ID="lblSaldoKredit"></asp:Label>
+								</p>
+							</li>
+							
+							<li class="nav-item dropdown dropdown-large" style="display: none;">
+								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span class="alert-count">8</span>
+									<i class='lni lni-headphone'></i>
+								</a>
+								<div class="dropdown-menu dropdown-menu-end">
+									<a href="javascript:;">
+										<div class="msg-header">
+											<p class="msg-header-title">•</p>
+											<p class="msg-header-clear ms-auto">•</p>
+										</div>
+									</a>
+									<div class="header-message-list">
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="user-online">
+													<img src="assets/images/avatars/avatar-1.png" class="msg-avatar" alt="user avatar">
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">• <span class="msg-time float-end">•</span></h6>
+													<p class="msg-info">•</p>
+												</div>
+											</div>
+										</a>
+									</div>
+									<a href="javascript:;">
+										<div class="text-center msg-footer">•</div>
+									</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown dropdown-large" style="display: none;">
+								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span class="alert-count">7</span>
+									<i class='bx bx-bell'></i>
+								</a>
+								<div class="dropdown-menu dropdown-menu-end">
+									<a href="javascript:;">
+										<div class="msg-header">
+											<p class="msg-header-title">•</p>
+											<p class="msg-header-clear ms-auto">•</p>
+										</div>
+									</a>
+									<div class="header-notifications-list">
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="notify bg-light-primary text-primary"><i class="bx bx-group"></i>
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">•<span class="msg-time float-end">•</span></h6>
+													<p class="msg-info">•</p>
+												</div>
+											</div>
+										</a>
+									</div>
+									<a href="javascript:;">
+										<div class="text-center msg-footer">•</div>
+									</a>
+								</div>
+							</li>
+							
+						</ul>
+					</div>
+					<div class="user-box dropdown">
+						<a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<img src="../assets/newAssets/images/avatars/nanda.jpg" class="user-img" alt="user avatar">
+							<div class="user-info ps-3">
+								<p class="user-name mb-0">
+									<asp:Label runat="server" ID="lblName"></asp:Label></span>
+								</p>
+								<p class="designattion mb-0">UI/UX Designer</p>
+							</div>
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end">
+							<%--<li><a class="dropdown-item" href="javascript:;"><i class="bx bx-user"></i><span>Profile</span></a>
+							</li>--%>
+							
+								<div class="dropdown-divider mb-0"></div>
+							<li><a class="dropdown-item" href="javascript:;"><i class='bx bx-log-out-circle'></i><span>Logout</span></a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<!--end header -->
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="page-wrapper">
             <!-- Content Header (Page header) -->
-            <section class="content-header">
+            <section class="content-header" style="display:none;">
                 <h1>
                     <asp:ContentPlaceHolder ID="MenuHead" runat="server">
                     </asp:ContentPlaceHolder>
@@ -238,22 +325,26 @@
             </section>
 
             <!-- Main content -->
-            <section class="content">
+            <section class="page-content">
 
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </section>
             <!-- /.content -->
+
+            <footer class="page-footer">
+			<p class="mb-0">Copyright &copy; 2024 - IT Division PT. Advantage SCM. All rights reserved.</p>
+		</footer>
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer">
+        <%--<footer class="main-footer">
             <div class="pull-right hidden-xs">
                 <b>Version</b>
                 <asp:Label ID="LblVersion" runat="server" Text="Label"></asp:Label>
 
             </div>
             <strong>Copyright &copy; 2018 - IT Division PT. Advantage SCM. All rights reserved.</strong>
-        </footer>
+        </footer>--%>
     </div>
     <!-- ./wrapper -->
 
@@ -292,11 +383,13 @@
 
     <script src="../assets/newAssets/js/index4.js"></script>
     <script src="../assets/newAssets/js/toggle-button.js"></script>
+    <script src="../assets/newAssets/js/addMore.js"></script>
     <script>
         var editor1 = new RichTextEditor("#div_editor1");
         var editor2 = new RichTextEditor("#div_editor2");
         //editor1.setHTMLCode("Use inline HTML or setHTMLCode to init the default content.");
     </script>
+    <script src="../assets/newAssets/js/app.js"></script>
     <%-- END SCRIPT --%>
 
 
@@ -360,11 +453,29 @@
             allowClear: Boolean($(this).data('allow-clear')),
         });
 
+        $('#multipleSelect').select2({
+            dropdownParent: $('#addNewQuestionPackage'),
+            theme: 'bootstrap4',
+            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            placeholder: $(this).data('placeholder'),
+            allowClear: Boolean($(this).data('allow-clear')),
+        });
+
     </script>
 
     <script>
         $(document).ready(function () {
             var table = $('#participant').DataTable({
+            });
+        });
+
+        $(document).ready(function () {
+            var table = $('#questionsPackageTable').DataTable({
+            });
+        });
+
+        $(document).ready(function () {
+            var table = $('#questionsGroupTable').DataTable({
             });
         });
 
@@ -422,6 +533,20 @@
                 uiLibrary: "bootstrap4",
                 icons: {
                     rightIcon: '<img src="../assets/newAssets/images/icons/calendar-days.svg" />'
+                }
+            })
+
+            $("#startDateCreatedQuestion").datepicker({
+                uiLibrary: "bootstrap4",
+                icons: {
+                    rightIcon: '<img src="assets/images/icons/calendar-days.svg" />'
+                }
+            })
+
+            $("#endDateCreatedQuestion").datepicker({
+                uiLibrary: "bootstrap4",
+                icons: {
+                    rightIcon: '<img src="assets/images/icons/calendar-days.svg" />'
                 }
             })
 
