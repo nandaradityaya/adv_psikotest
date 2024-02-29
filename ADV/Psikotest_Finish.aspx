@@ -86,13 +86,13 @@
       <img
         src="../assets/newAssets/images/gallery/plus.svg"
         alt=""
-        class="icon-plus-bg"
+        class="icon-plus-validation"
         width="20"
       />
       <img
         src="../assets/newAssets/images/gallery/round.svg"
         alt=""
-        class="icon-round-bg"
+        class="icon-round-validation"
         width="20"
       />
       <div
@@ -101,6 +101,14 @@
         <div class="container-fluid">
           <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-2">
             <div class="col mx-auto">
+                <div class="text-center mb-4">
+                  <a href="#" class="text-primary" style="font-family: 'Segoe UI Black'">
+                    <span style="font-size: 24px; font-style: italic">DCT</span>
+                    <span style="font-size: 20px; text-decoration: overline"
+                      >Recruitment</span
+                    >
+                  </a>
+                </div>
               <div class="card mb-4 radius-10">
                 <div class="card-body text-center">
                   <div class="d-flex justify-content-center">
@@ -113,10 +121,10 @@
                       autoplay
                     ></dotlottie-player>
                   </div>
-                  <h4 class="mb-4">
-                    Tahap ujian telah selesai. Tim kami akan menghubungi Anda
-                    jika Anda lolos. Terima kasih atas partisipasinya.
-                  </h4>
+                  <h6 class="mb-4">
+                      Selamat! Anda telah menyelesaikan psikotest. Terima kasih
+                      atas partisipasi Anda.
+                  </h6>
                   <a
                     href="https://karir.advantagescm.com/"
                     type="button"
