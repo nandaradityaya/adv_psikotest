@@ -1614,15 +1614,22 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center justify-content-between">
                 <div>
                     <h5 class="font-weight-bold mb-0">Participant</h5>
                 </div>
-                <div class="ms-auto mt-2">
+                <p class="mb-0 text-black d-flex align-items-center d-none d-lg-block"><i class="lni lni-whatsapp text-success me-2"></i>Credit: 816,247 (Can Invite 1484 People)
+                </p>
+                <div class="mt-2">
                     <button type="button" class="btn btn-primary radius-8 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#modalInvitation">
                         <img src="../assets/newAssets/images/icons/ic_mail_open.svg" alt="mail_open" class="me-2">Invite</button>
                 </div>
             </div>
+
+            <%-- Show this in mobile and tab pixel device --%>
+            <p class="mb-0 mt-3 text-black d-flex align-items-center justify-content-center d-lg-none d-md-block d-sm-block"><i class="lni lni-whatsapp text-success me-2"></i>Credit: 816,247 (Can Invite 1484 People)</p>
+            <%-- End --%>
+
             <div class="table-responsive">
                 <div id="printbar" style="float: right"></div>
                 <br>

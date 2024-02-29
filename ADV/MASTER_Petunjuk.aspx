@@ -209,7 +209,7 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="applicant-data.html"><i class="bx bx-home-alt"></i></a>
+                    <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">Instruction</li>
                 </ol>
@@ -323,7 +323,7 @@
 
 
     <!-- Modal Box Add New Instruction -->
-    <div class="modal" id="modalAddNewInstruction" tabindex="-1"
+    <div class="modal fade" id="modalAddNewInstruction" tabindex="-1"
         aria-labelledby="modalAddNewInstructionLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -365,7 +365,7 @@
     </div>
 
     <!-- Modal Box Edit Instruction -->
-    <div class="modal" id="modalEditInstruction" tabindex="-1"
+    <div class="modal fade" id="modalEditInstruction" tabindex="-1"
         aria-labelledby="modalEditInstructionLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -407,7 +407,7 @@
     </div>
 
     <!-- Modal Box Delete -->
-    <div class="modal" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+    <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">

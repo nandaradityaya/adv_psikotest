@@ -18,7 +18,7 @@ Partial Class ADVNet
 
         If Not Page.IsPostBack Then
 
-            setupSaldoKredit()
+            'setupSaldoKredit()
             CheckUserPermission()
             CreateMenuAndBreadcrumbs()
             lblName.Text = Session("UserName")
@@ -247,61 +247,61 @@ Partial Class ADVNet
         'ltlmenu1.Text = sbMenu.ToString
         'ltlBreadCrumb.Text = BreadCrumbText
     End Sub
-    Private Sub setupSaldoKredit()
+    'Private Sub setupSaldoKredit()
 
-        Dim saldoKreditLng As Long = 0
-        Dim batasSaldoMerah As Long = 0
-        Dim biayaPerUndang As Long = 0
-        Try
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 ' Untuk hindarin error: The underlying connection was closed: An unexpected error occurred on a send.
+    '    Dim saldoKreditLng As Long = 0
+    '    Dim batasSaldoMerah As Long = 0
+    '    Dim biayaPerUndang As Long = 0
+    '    Try
+    '        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 ' Untuk hindarin error: The underlying connection was closed: An unexpected error occurred on a send.
 
-            Dim App_Id = "bvbte-l7s13pq32tpmowc"
-            Dim Secret_Key = "2d9ed9339e6768d68eb4344fa6758371"
-            Dim url As String = "https://multichannel-api.qiscus.com/api/v2/admin/wa_pricing/balance"
+    '        Dim App_Id = "bvbte-l7s13pq32tpmowc"
+    '        Dim Secret_Key = "2d9ed9339e6768d68eb4344fa6758371"
+    '        Dim url As String = "https://multichannel-api.qiscus.com/api/v2/admin/wa_pricing/balance"
 
-            Dim postReq As WebRequest = WebRequest.Create(url)
-            postReq.Method = "GET"
+    '        Dim postReq As WebRequest = WebRequest.Create(url)
+    '        postReq.Method = "GET"
 
-            Dim webHeader As WebHeaderCollection = postReq.Headers
-            webHeader.Add("Qiscus-App-Id", App_Id)
-            webHeader.Add("Qiscus-Secret-Key", Secret_Key)
+    '        Dim webHeader As WebHeaderCollection = postReq.Headers
+    '        webHeader.Add("Qiscus-App-Id", App_Id)
+    '        webHeader.Add("Qiscus-Secret-Key", Secret_Key)
 
-            Dim response As WebResponse = postReq.GetResponse
-            Dim dataStream As Stream = response.GetResponseStream
-            Dim reader As New StreamReader(dataStream)
-            Dim responseFromServer As String = reader.ReadToEnd
+    '        Dim response As WebResponse = postReq.GetResponse
+    '        Dim dataStream As Stream = response.GetResponseStream
+    '        Dim reader As New StreamReader(dataStream)
+    '        Dim responseFromServer As String = reader.ReadToEnd
 
-            Dim json = Newtonsoft.Json.JsonConvert.DeserializeObject(responseFromServer)
+    '        Dim json = Newtonsoft.Json.JsonConvert.DeserializeObject(responseFromServer)
 
-            saldoKreditLng = CLng(json("data")("channels")(0)("balance").ToString)
+    '        saldoKreditLng = CLng(json("data")("channels")(0)("balance").ToString)
 
-            reader.Close()
-            dataStream.Close()
-            response.Close()
+    '        reader.Close()
+    '        dataStream.Close()
+    '        response.Close()
 
-            Using oHelper As New clsSQLHelper
-                oHelper.CommandType = CommandType.Text
+    '        Using oHelper As New clsSQLHelper
+    '            oHelper.CommandType = CommandType.Text
 
-                oHelper.CommandText = "SELECT Value FROM SYS_Parameter WHERE Name = 'Batas Saldo Merah Qiscus'"
-                batasSaldoMerah = CLng(oHelper.ExecuteScalar)
+    '            oHelper.CommandText = "SELECT Value FROM SYS_Parameter WHERE Name = 'Batas Saldo Merah Qiscus'"
+    '            batasSaldoMerah = CLng(oHelper.ExecuteScalar)
 
-                oHelper.CommandText = "SELECT Value FROM SYS_Parameter WHERE Name = 'Biaya per Undangan'"
-                biayaPerUndang = CLng(oHelper.ExecuteScalar)
-            End Using
-        Catch ex As Exception
-            lblSaldoKredit.Text = ex.Message + vbCrLf + ex.StackTrace
-            Return
-        End Try
+    '            oHelper.CommandText = "SELECT Value FROM SYS_Parameter WHERE Name = 'Biaya per Undangan'"
+    '            biayaPerUndang = CLng(oHelper.ExecuteScalar)
+    '        End Using
+    '    Catch ex As Exception
+    '        lblSaldoKredit.Text = ex.Message + vbCrLf + ex.StackTrace
+    '        Return
+    '    End Try
 
-        Dim saldoKredit As String = CLng(saldoKreditLng).ToString("#,##0")
-        Dim jumlahOrgBisaDiundang As String = Math.Floor(saldoKredit / biayaPerUndang).ToString
+    '    Dim saldoKredit As String = CLng(saldoKreditLng).ToString("#,##0")
+    '    Dim jumlahOrgBisaDiundang As String = Math.Floor(saldoKredit / biayaPerUndang).ToString
 
-        lblSaldoKredit.Text = "<span style=""color: "
-        If saldoKredit > batasSaldoMerah Then
-            lblSaldoKredit.Text += "#33FF00;"">WhatsApp Kredit: " + saldoKredit + " (Bisa Mengundang " + jumlahOrgBisaDiundang + " Orang)</span>"
-        Else
-            lblSaldoKredit.Text += "#FFBC00;"">WhatsApp Kredit: " + saldoKredit + " (Bisa Mengundang " + jumlahOrgBisaDiundang + " Orang)</span>"
-        End If
-    End Sub
+    '    lblSaldoKredit.Text = "<span style=""color: "
+    '    If saldoKredit > batasSaldoMerah Then
+    '        lblSaldoKredit.Text += "#33FF00;"">WhatsApp Kredit: " + saldoKredit + " (Bisa Mengundang " + jumlahOrgBisaDiundang + " Orang)</span>"
+    '    Else
+    '        lblSaldoKredit.Text += "#FFBC00;"">WhatsApp Kredit: " + saldoKredit + " (Bisa Mengundang " + jumlahOrgBisaDiundang + " Orang)</span>"
+    '    End If
+    'End Sub
 
 End Class

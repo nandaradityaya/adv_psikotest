@@ -153,7 +153,7 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="applicant-data.html"><i class="bx bx-home-alt"></i></a>
+                    <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">Parameter</li>
                 </ol>
@@ -212,7 +212,7 @@
 
 
     <!-- Modal Box Edit Role -->
-    <div class="modal" id="modalEditParameter" tabindex="-1"
+    <div class="modal fade" id="modalEditParameter" tabindex="-1"
         aria-labelledby="modalEditParameterLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -263,7 +263,7 @@
 
 
     <!-- Modal Box Delete -->
-    <div class="modal" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+    <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
