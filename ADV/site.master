@@ -381,6 +381,10 @@
     <script type="text/javascript" src="../assets/newAssets/plugins/richtexteditor/rte.js"></script>
 	<script type="text/javascript" src='../assets/newAssets/plugins/richtexteditor/plugins/all_plugins.js'></script>
 
+    <!-- chart apex -->
+	<script src="../assets/newAssets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
+	<script src="../assets/newAssets/plugins/apexcharts-bundle/js/apex-custom.js"></script>
+
     <script src="../assets/newAssets/js/index4.js"></script>
     <script src="../assets/newAssets/js/toggle-button.js"></script>
     <script src="../assets/newAssets/js/addMore.js"></script>

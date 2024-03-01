@@ -4,7 +4,7 @@
 <%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-<%--    <link href="../assets/css/custom.css" rel="stylesheet">
+    <%--    <link href="../assets/css/custom.css" rel="stylesheet">
     <link href="../assets/newAssets/css/bootstrap-extended.css" rel="stylesheet">
     <link href="../assets/newAssets/css/app.css" rel="stylesheet">--%>
     <title>Master Assign Ujian - Psikotest</title>
@@ -301,15 +301,13 @@
         }
     </style>
 
-<%--    <script src="../assets/newAssets/js/bootstrap.bundle.min.js"></script>
+    <%--    <script src="../assets/newAssets/js/bootstrap.bundle.min.js"></script>
     <!--plugins-->
     <script src="../assets/newAssets/js/jquery.min.js"></script>
     <script src="../assets/newAssets/plugins/datatable/js/jquery.dataTables.min.js"></script>
     <script src="../assets/newAssets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
     <script src="../assets/newAssets/plugins/select2/js/select2.min.js"></script>
     <script src="../assets/newAssets/js/app.js"></script>--%>
-
-
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MenuHead" runat="server">
@@ -1618,7 +1616,8 @@
                 <div>
                     <h5 class="font-weight-bold mb-0">Participant</h5>
                 </div>
-                <p class="mb-0 text-black d-flex align-items-center d-none d-lg-block"><i class="lni lni-whatsapp text-success me-2"></i>Credit: 816,247 (Can Invite 1484 People)
+                <p class="mb-0 text-black d-flex align-items-center d-none d-lg-block">
+                    <i class="lni lni-whatsapp text-success me-2"></i>Credit: 816,247 (Can Invite 1484 People)
                 </p>
                 <div class="mt-2">
                     <button type="button" class="btn btn-primary radius-8 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#modalInvitation">
@@ -2191,7 +2190,7 @@
                     </div>
                 </div>
             </div>
-         </div>
+        </div>
     </div>
 
     <!-- Modal Box Detail Result-->
@@ -2205,43 +2204,59 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="text-center mb-3">
-                        <img src="../assets/newAssets/images/avatars/nanda.jpg" alt="participant" class="rounded-circle p-1 bg-primary" width="110">
+                    <div class="d-flex flex-column align-items-center text-center mb-3">
+                        <img src="../assets/newAssets/images/avatars/nanda.jpg" alt="Admin" class="radius-10" width="150">
                     </div>
-                    <div class="row ">
-                        <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
-                            <label for="disabledNIK">No. Participant</label>
-                            <p class="font-weight-bold">18</p>
+                    <div class="row align-items-center mb-3">
+                        <div class="col-12 col-lg-6">
+                            <!-- <img src="assets/images/avatars/nanda.jpg" alt="participant" class="rounded-circle p-1 bg-primary" width="110"> -->
+
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <span class="text-secondary">No. Participant</span>
+                                    <h6 class="mb-0 text-end">18</h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <span class="text-secondary">Nama</span>
+                                    <h6 class="mb-0 text-end">Nanda Raditya</h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <span class="text-secondary">No. Ktp</span>
+                                    <h6 class="mb-0 text-end">3678987498006753</h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <span class="text-secondary">Date of Birth</span>
+                                    <h6 class="mb-0 text-end">5 September 2000</h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <span class="text-secondary">Address</span>
+                                    <h6 class="mb-0 text-end">Jalan Burung No. 90 RT. 001, RW. 002, Kel. Lorem, Kec. Kembangan, Jakarta Barat</h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <span class="text-secondary">Phone Number</span>
+                                    <h6 class="mb-0 text-end">082124776437</h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <span class="text-secondary">Email</span>
+                                    <h6 class="mb-0 text-end">nandaraditya80@gmail.com</h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <span class="text-secondary">Apply as</span>
+                                    <h6 class="mb-0 text-end">Front-end Developer</h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <span class="text-secondary">Result</span>
+                                    <div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">
+                                        Recommended
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
-                            <label for="disabledName">Name</label>
-                            <p class="font-weight-bold">Nanda Raditya</p>
-                        </div>
-                        <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
-                            <label for="disabledName">No. KTP</label>
-                            <p class="font-weight-bold">3678987498006753</p>
-                        </div>
-                        <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
-                            <label for="disabledHomeBase">Date of Birth</label>
-                            <p class="font-weight-bold">05 September 2000</p>
-                        </div>
-                        <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
-                            <label for="lokasiPenugasan">Address</label>
-                            <p class="font-weight-bold">Ampasit</p>
-                        </div>
-                        <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
-                            <label for="lokasiPenugasan">Phone Number</label>
-                            <p class="font-weight-bold">081234537890</p>
-                        </div>
-                        <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
-                            <label for="lokasiPenugasan">Email</label>
-                            <p class="font-weight-bold">nandaraditya80@gmail.com</p>
-                        </div>
-                        <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
-                            <label for="lokasiPenugasan">Apply as</label>
-                            <p class="font-weight-bold">Front-end Developer</p>
+                        <div class="col-12 col-lg-6">
+                            <div id="chartScore"></div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-12 col-lg-3">
                             <div class="card radius-10 bg-light-success border-success">
