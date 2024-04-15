@@ -522,6 +522,11 @@
             });
         });
 
+        $(document).ready(function () {
+            var table = $('#tableQuestions').DataTable({
+            });
+        });
+
     </script>
 
     <script>
