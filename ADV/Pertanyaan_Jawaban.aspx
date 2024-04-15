@@ -1322,13 +1322,16 @@
 
 
 
-    <div class="card">
+    <div class="card radius-10">
         <div class="card-body">
-            <div class="d-flex align-items-center mb-3">
+            <div class="d-flex align-items-center justify-content-between mb-3">
                 <div class="">
                     <h6 class="mb-0 text-uppercase">Question</h6>
                 </div>
-                <div class="ms-auto">
+                <div class="d-flex align-items-center gap-2">
+                    <button type="button" class="btn btn-outline-primary radius-10"
+                        data-bs-toggle="modal" data-bs-target="#modalAddNewQuestion">
+                        <i class="bx bx-plus"></i>Add Question</button>
                     <button type="button" class="btn btn-primary radius-10" data-bs-toggle="modal"
                         data-bs-target="#modalAddByImport">
                         <i
@@ -1337,114 +1340,80 @@
             </div>
 
             <!-- Show this if user imported question -->
-            <div class="text-center">
+            <div class="text-center mb-3">
                 <h6 class="text-success mb-0">Successfully imported questions, please submit this form!</h6>
-                <p class="mb-0">or</p>
-                <p class="">Want to delete the data you imported? <a href="#" class="text-danger">Click Here!</a> </p>
             </div>
             <!-- END -->
 
-            <!-- Hide this if user imported question -->
-            <div class="mb-4">
-                <label class="form-label">Title</label>
-                <input type="text" class="form-control is-invalid" placeholder="Title...">
-                <div class="invalid-feedback">Please enter a title.</div>
+            <div class="table-responsive mb-3">
+                <table id="tableQuestions" class="table mb-0 align-middle" style="width: 100%">
+                    <thead class="table-light">
+                        <tr>
+                            <th>No</th>
+                            <th>Question</th>
+                            <th>Option 1</th>
+                            <th>Option 2</th>
+                            <th>Option 3</th>
+                            <th>Option 4</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.<span class="ms-2 cursor-pointer" data-bs-toggle="modal"
+                                data-bs-target="#modalImageQuestion"><img src="assets/images/bg.jpg" alt="option" width="48"></span></td>
+                            <td>Opsi 1<span class="ms-2 cursor-pointer" data-bs-toggle="modal"
+                                data-bs-target="#modalImageQuestion"><img src="assets/images/bg.jpg" alt="option" width="48"></span></td>
+                            <td>Opsi 2<span class="ms-2 cursor-pointer" data-bs-toggle="modal"
+                                data-bs-target="#modalImageQuestion"><img src="assets/images/bg.jpg" alt="option" width="48"></span></td>
+                            <td>Opsi 3<span class="ms-2 cursor-pointer" data-bs-toggle="modal"
+                                data-bs-target="#modalImageQuestion"><img src="assets/images/bg.jpg" alt="option" width="48"></span></td>
+                            <td class="text-success">Opsi 4<span class="ms-2 cursor-pointer" data-bs-toggle="modal"
+                                data-bs-target="#modalImageQuestion"><img src="assets/images/bg.jpg" alt="option" width="48"></span></td>
+                            <td>
+                                <div class="d-flex order-actions">
+                                    <a type="button" class="text-primary bg-light-primary border-0 me-3" data-bs-toggle="modal" data-bs-target="#modalAddNewQuestion"><i class="bx bxs-edit"></i></a>
+                                    <a type="button" class="text-danger bg-light-danger border-0" data-bs-toggle="modal" data-bs-target="#modalDelete"><i class="bx bxs-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Contoh soal tidak memiliki gambar</td>
+                            <td>Opsi 1</td>
+                            <td>Opsi 2</td>
+                            <td class="text-success">Opsi 3</td>
+                            <td>Opsi 4</td>
+                            <td>
+                                <div class="d-flex order-actions">
+                                    <a type="button" class="text-primary bg-light-primary border-0 me-3" data-bs-toggle="modal" data-bs-target="#modalAddNewQuestion"><i class="bx bxs-edit"></i></a>
+                                    <a type="button" class="text-danger bg-light-danger border-0" data-bs-toggle="modal" data-bs-target="#modalDelete"><i class="bx bxs-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Contoh soal nomor 3</td>
+                            <td class="text-success">Opsi 1</td>
+                            <td>Opsi 2</td>
+                            <td>Opsi 3</td>
+                            <td>Opsi 4</td>
+                            <td>
+                                <div class="d-flex order-actions">
+                                    <a type="button" class="text-primary bg-light-primary border-0 me-3" data-bs-toggle="modal" data-bs-target="#modalAddNewQuestion"><i class="bx bxs-edit"></i></a>
+                                    <a type="button" class="text-danger bg-light-danger border-0" data-bs-toggle="modal" data-bs-target="#modalDelete"><i class="bx bxs-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="question-one" id="wrapperQuestion">
-                <div class="card radius-10 mb-4" id="sectionQuestion">
-                    <div class="card-body order-actions">
-                        <div class="row mb-3">
-                            <div class="col-12 col-lg-6">
-                                <h6 class="mb-3 text-black">Question 1</h6>
-                                <textarea class="form-control bg-light-secondary" id="inputQuestionArea" placeholder="Input Question..." rows="1"></textarea>
-                            </div>
-                            <div class="col-12 col-lg-6">
-                                <label for="formFile" class="form-label">Image</label>
-                                <input class="form-control" type="file" id="formFile">
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="card radius-10 mb-2">
-                            <div class="card-body">
-                                <div class="form-check d-flex align-items-center mb-2">
-                                    <input class="form-check-input me-2" type="radio" name="questionOne"
-                                        id="questionOne1">
-                                    <input type="text" class="form-control" for="questionOne1"
-                                        placeholder="Input Answer...">
-                                </div>
-                                <div class="">
-                                    <label for="formFile" class="form-label">Image</label>
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card radius-10 mb-2">
-                            <div class="card-body">
-                                <div class="form-check d-flex align-items-center mb-2">
-                                    <input class="form-check-input me-2" type="radio" name="questionOne"
-                                        id="questionOne2" checked>
-                                    <input type="text" class="form-control bg-light-success" for="questionOne2"
-                                        value="Contoh Jawaban Benar">
-                                </div>
-                                <div class="">
-                                    <label for="formFile" class="form-label">Image</label>
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card radius-10 mb-2">
-                            <div class="card-body">
-                                <div class="form-check d-flex align-items-center mb-2">
-                                    <input class="form-check-input me-2" type="radio" name="questionOne"
-                                        id="questionOne3">
-                                    <input type="text" class="form-control" for="questionOne3"
-                                        placeholder="Input Answer...">
-                                </div>
-                                <div class="">
-                                    <label for="formFile" class="form-label">Image</label>
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card radius-10 mb-2">
-                            <div class="card-body">
-                                <div class="form-check d-flex align-items-center mb-2">
-                                    <input class="form-check-input me-2" type="radio" name="questionOne"
-                                        id="questionOne4">
-                                    <input type="text" class="form-control" for="questionOne4"
-                                        placeholder="Input Answer...">
-                                </div>
-                                <div class="">
-                                    <label for="formFile" class="form-label">Image</label>
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <div class="mt-2">
-                                <label class="form-label" for="">Delete</label>
-                                <a type="button"
-                                    class="text-danger bg-light-danger border-0 ms-2"><i
-                                        class="bx bxs-trash" data-bs-toggle="modal" data-bs-target="#modalDelete"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Container Empty for Add More Question (Don't Delete This) -->
-                <div id="card-container"></div>
-
-                <div class="d-flex justify-content-end mb-3">
-                    <button type="button" class="btn btn-outline-primary radius-10 ms-2"
-                        id="newsectionbtn">
-                        <i class="bx bx-plus"></i>Add More</button>
-                </div>
-
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary ms-2 radius-8">Submit</button>
             </div>
         </div>
-    </div>
-    <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-primary ms-2 radius-10">Submit</button>
     </div>
 
     <!-- Modal Box Add By Import -->
@@ -1540,6 +1509,141 @@
                         data-bs-dismiss="modal">
                         Cancel</button>
                     <button type="button" class="btn btn-danger radius-8">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Box Image Question -->
+    <div class="modal fade" id="modalImageQuestion" tabindex="-1" aria-labelledby="modalImageQuestionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalImageQuestionLabel">Detail Image</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/images/bg.jpg" alt="image question" width="100%">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary radius-8"
+                        data-bs-dismiss="modal">
+                        Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Box Add New Question -->
+    <div class="modal fade" id="modalAddNewQuestion" tabindex="-1" aria-labelledby="modalAddNewQuestionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAddNewQuestionLabel">Add New Question</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <div class="col-12 col-lg-6">
+                            <h6 class="text-black">Question</h6>
+                            <textarea class="form-control bg-light-secondary" id="inputQuestionArea" placeholder="Input Question..." rows="2"></textarea>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <label for="formFile" class="form-label">Image</label>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="card radius-10 mb-2">
+                        <div class="card-body">
+                            <div class="form-check d-flex align-items-center mb-2">
+                                <input class="form-check-input me-2" type="radio" name="questionOne"
+                                    id="questionOne1">
+                                <input type="text" class="form-control" for="questionOne1"
+                                    placeholder="Input Answer...">
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                    <label for="formFile" class="form-label">Image</label>
+                                    <input class="form-control" type="file" id="formFile">
+                                </div>
+                                <div class="col-3">
+                                    <label for="score" class="form-label">Score</label>
+                                    <input type="number" class="form-control" id="score" placeholder="Score...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card radius-10 mb-2">
+                        <div class="card-body">
+                            <div class="form-check d-flex align-items-center mb-2">
+                                <input class="form-check-input me-2" type="radio" name="questionOne"
+                                    id="questionOne2" checked>
+                                <input type="text" class="form-control bg-light-success" for="questionOne2"
+                                    value="Contoh Jawaban Benar">
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                    <label for="formFile" class="form-label">Image</label>
+                                    <input class="form-control" type="file" id="formFile">
+                                </div>
+                                <div class="col-3">
+                                    <label for="score" class="form-label">Score</label>
+                                    <input type="number" class="form-control" id="score" placeholder="Score...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card radius-10 mb-2">
+                        <div class="card-body">
+                            <div class="form-check d-flex align-items-center mb-2">
+                                <input class="form-check-input me-2" type="radio" name="questionOne"
+                                    id="questionOne3">
+                                <input type="text" class="form-control" for="questionOne3"
+                                    placeholder="Input Answer...">
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                    <label for="formFile" class="form-label">Image</label>
+                                    <input class="form-control" type="file" id="formFile">
+                                </div>
+                                <div class="col-3">
+                                    <label for="score" class="form-label">Score</label>
+                                    <input type="number" class="form-control" id="score" placeholder="Score...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card radius-10 mb-2">
+                        <div class="card-body">
+                            <div class="form-check d-flex align-items-center mb-2">
+                                <input class="form-check-input me-2" type="radio" name="questionOne"
+                                    id="questionOne4">
+                                <input type="text" class="form-control" for="questionOne4"
+                                    placeholder="Input Answer...">
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                    <label for="formFile" class="form-label">Image</label>
+                                    <input class="form-control" type="file" id="formFile">
+                                </div>
+                                <div class="col-3">
+                                    <label for="score" class="form-label">Score</label>
+                                    <input type="number" class="form-control" id="score" placeholder="Score...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary radius-8"
+                        data-bs-dismiss="modal">
+                        Close</button>
+                    <button type="button" class="btn btn-primary radius-8">Save</button>
                 </div>
             </div>
         </div>
