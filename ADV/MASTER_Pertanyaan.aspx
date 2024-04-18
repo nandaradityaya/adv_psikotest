@@ -1299,6 +1299,7 @@
                             <th>Status</th>
                             <th>User Input</th>
                             <th>Time Input</th>
+                            <th>Detail</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -1316,9 +1317,10 @@
                             </td>
                             <td>w-888</td>
                             <td>20 Jan 2024</td>
+                            <td><a href="Group_Soal.aspx" type="button" class="btn btn-primary btn-sm radius-30 px-4">View Detail</a></td>
                             <td>
                                 <div class="d-flex order-actions">
-                                    <a href="Group_Soal.aspx" class="text-primary bg-light-primary border-0 me-3"><i class="bx bxs-edit"></i></a>
+                                    <a type="button" class="text-primary bg-light-primary border-0 me-3" data-bs-toggle="modal" data-bs-target="#editQuestionPackage"><i class="bx bxs-edit"></i></a>
                                     <a type="button" class="text-danger bg-light-danger border-0" data-bs-toggle="modal" data-bs-target="#modalDelete"><i class="bx bxs-trash"></i></a>
                                 </div>
                             </td>
@@ -1336,9 +1338,10 @@
                             </td>
                             <td>w-888</td>
                             <td>20 Jan 2024</td>
+                            <td><a href="Group_Soal.aspx" type="button" class="btn btn-primary btn-sm radius-30 px-4">View Detail</a></td>
                             <td>
                                 <div class="d-flex order-actions">
-                                    <a href="package-group.html" class="text-primary bg-light-primary border-0 me-3"><i class="bx bxs-edit"></i></a>
+                                    <a type="button" class="text-primary bg-light-primary border-0 me-3" data-bs-toggle="modal" data-bs-target="#editQuestionPackage"><i class="bx bxs-edit"></i></a>
                                     <a type="button" class="text-danger bg-light-danger border-0" data-bs-toggle="modal" data-bs-target="#modalDelete"><i class="bx bxs-trash"></i></a>
                                 </div>
                             </td>
@@ -1391,6 +1394,65 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioInactive">
                                     <label class="form-check-label ps-0" for="flexRadioInactive">Inactive</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                        Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Box Add New Question Package -->
+    <div class="modal fade" id="editQuestionPackage" tabindex="-1"
+        aria-labelledby="editQuestionPackageLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editQuestionPackageLabel">Edit Package</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
+                            <label for="packageNameEdit" class="form-label">Package Name</label>
+                            <input type="text" class="form-control" id="packageNameEdit" placeholder="Package Name...">
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
+                            <label for="timePackageEdit" class="form-label">Time (Minutes)</label>
+                            <input type="number" class="form-control" id="timePackageEdit" placeholder="Package Time...">
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
+                            <label class="form-label">Position</label>
+                            <select id="multipleSelectEdit" class="" data-placeholder="Choose anything" multiple="multiple">
+                                <option value="it">IT</option>
+                                <option value="hrd">HRD</option>
+                                <option value="finance">Finance</option>
+                                <option value="audit">Audit</option>
+                                <option value="legal">Legal</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
+                            <label class="form-label">Status</label>
+                            <div class="d-flex">
+                                <div class="form-check me-2">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioActiveEdit">
+                                    <label class="form-check-label" for="flexRadioActiveEdit">Active</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioInactiveEdit">
+                                    <label class="form-check-label" for="flexRadioInactiveEdit">Inactive</label>
                                 </div>
                             </div>
                         </div>
