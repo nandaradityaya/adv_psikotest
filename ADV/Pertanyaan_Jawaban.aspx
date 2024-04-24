@@ -1560,12 +1560,7 @@
                     <hr>
                     <div class="card radius-10 mb-2">
                         <div class="card-body">
-                            <div class="form-check d-flex align-items-center mb-2">
-                                <input class="form-check-input me-2" type="radio" name="questionOne"
-                                    id="questionOne1">
-                                <input type="text" class="form-control" for="questionOne1"
-                                    placeholder="Input Answer...">
-                            </div>
+                            <input class="form-control mb-3" type="text" placeholder="Input Answer..." aria-label="default input example">
                             <div class="row">
                                 <div class="col-9">
                                     <label for="formFile" class="form-label">Image</label>
@@ -1580,12 +1575,7 @@
                     </div>
                     <div class="card radius-10 mb-2">
                         <div class="card-body">
-                            <div class="form-check d-flex align-items-center mb-2">
-                                <input class="form-check-input me-2" type="radio" name="questionOne"
-                                    id="questionOne2" checked>
-                                <input type="text" class="form-control bg-light-success" for="questionOne2"
-                                    value="Contoh Jawaban Benar">
-                            </div>
+                            <input class="form-control mb-3 bg-light-success" type="text" value="Contoh Jawaban Benar" aria-label="default input example">
                             <div class="row">
                                 <div class="col-9">
                                     <label for="formFile" class="form-label">Image</label>
@@ -1600,12 +1590,7 @@
                     </div>
                     <div class="card radius-10 mb-2">
                         <div class="card-body">
-                            <div class="form-check d-flex align-items-center mb-2">
-                                <input class="form-check-input me-2" type="radio" name="questionOne"
-                                    id="questionOne3">
-                                <input type="text" class="form-control" for="questionOne3"
-                                    placeholder="Input Answer...">
-                            </div>
+                            <input class="form-control mb-3" type="text" placeholder="Input Answer..." aria-label="default input example">
                             <div class="row">
                                 <div class="col-9">
                                     <label for="formFile" class="form-label">Image</label>
@@ -1620,12 +1605,7 @@
                     </div>
                     <div class="card radius-10 mb-2">
                         <div class="card-body">
-                            <div class="form-check d-flex align-items-center mb-2">
-                                <input class="form-check-input me-2" type="radio" name="questionOne"
-                                    id="questionOne4">
-                                <input type="text" class="form-control" for="questionOne4"
-                                    placeholder="Input Answer...">
-                            </div>
+                            <input class="form-control mb-3" type="text" placeholder="Input Answer..." aria-label="default input example">
                             <div class="row">
                                 <div class="col-9">
                                     <label for="formFile" class="form-label">Image</label>
@@ -1637,6 +1617,9 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="button" class="btn btn-outline-primary radius-8"><i class="bx bx-plus"></i>Add Answer</button>
                     </div>
                 </div>
                 <div class="modal-footer">
